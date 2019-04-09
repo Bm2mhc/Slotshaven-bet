@@ -49,18 +49,33 @@
 
     <nav>
         <div class="nav-wrapper black">
-            <a href="#" class="brand-logo">Slotshaven Betting</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                <li id="menu-page-one"><a href="#hej">Bet</a></li>
-                <li><a href="#">Om Os</a></li>
-                <li><a href="#">Kontakt</a></li>
+            <div class="container">
+                <a href="#" class="brand-logo"> Slotshaven Betting </a>
+                <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
 
-            </ul>
+                <ul class="hide-on-med-and-down right">
+                    <li><a>Bet</a></li>
+                    <li><a>Om os</a></li>
+                    <li><a>Kontakt</a></li>
+
+                </ul>
+
+            </div>
+
         </div>
     </nav>
-    <div class="container" style="margin-top: 3%">
 
+    <ul class="sidenav" id="slide_out">
+        <li><a>Bet</a></li>
+        <li><a>Om os</a></li>
+        <li><a>Kontakt</a></li>
+
+    </ul>
+
+
+    <!--------------------------------------------------------------------------------------------------------------->
+    <div class="container" style="margin-top: 1%">
         <div id="page-one">
             <div class="row">
                 <div class="col s50 m50">
@@ -74,19 +89,19 @@
                     <li>bare bet med alkohol</li>
 
                     <p>Lyder godt? så bare kom igang</p>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-<script>
-
-$('menu-page-one').click(function(){
-    $('#page-one').hide();
-})
-
-</script>
-
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu,{});
+</script>
 
 </html>
