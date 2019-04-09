@@ -36,6 +36,7 @@
 
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link rel="stylesheet" href="css/mystyles.css">
 
@@ -55,21 +56,57 @@
                 <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
 
                 <ul class="hide-on-med-and-down right">
-                    <li><a>Bet</a></li>
-                    <li><a>Om os</a></li>
-                    <li><a>Kontakt</a></li>
 
+                    <li id="menu-page-one"><a href="#bet">Bet</a></li>
+                    <li id="menu-page-two"><a href="#regler">Regler</a></li>
+                    <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
+                    <li id="menu-page-four"><a href="#om os">Om os</a></li>
+                    <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
+
+                    <div class="container">
+                        <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+                            style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 100px; solid #EEE;">
+                            <div class="section"></div>
+                            <div class="section"></div>
+
+                            <div class="section"><i class="mdi-alert-error red-text"></i></div>
+
+
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="text" name='username' id='email' required />
+                                    <label for='email'>Username</label>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='input-field col m12'>
+                                    <input class='validate' type='password' name='password' id='password' required />
+                                    <label for='password'>Password</label>
+                                </div>
+                                <label style='float: right;'>
+                                    <a><b style="color: #F5F5F5;">Forgot Password?</b></a>
+                                </label>
+                            </div>
+                            <br />
+                            <center>
+                                <div class='row'>
+                                    <button style="margin-left:65px;" type='submit' name='btn_login'
+                                        class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
+                                </div>
+                            </center>
                 </ul>
-
             </div>
 
         </div>
     </nav>
 
     <ul class="sidenav" id="slide_out">
-        <li><a>Bet</a></li>
-        <li><a>Om os</a></li>
-        <li><a>Kontakt</a></li>
+
+        <li id="menu-page-one"><a href="#bet">Bet</a></li>
+        <li id="menu-page-two"><a href="#regler">Regler</a></li>
+        <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
+        <li id="menu-page-four"><a href="#omos">Om os</a></li>
+        <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
 
     </ul>
 
@@ -96,12 +133,10 @@
     </div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script>
-    
     const slide_menu = document.querySelectorAll(".sidenav");
-    M.Sidenav.init(slide_menu,{});
+    M.Sidenav.init(slide_menu, {});
 </script>
 
 </html>
