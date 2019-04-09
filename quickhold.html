@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+<script>
+    var apiSource = $("#api-card-template").html();
+    var apiTemplate = Handlebars.compile(apiSource);
+
+    function getApiData(someparam) {
+        $.ajax({
+          url: "https://www.boredapi.com/api/activity?participants=" + someparam,
+        }).done(function (data) {
+          console.log(data);
+          $('#api-component-page-one').html(apiTemplate(data));
+        });
+      }
+    
+</script>
