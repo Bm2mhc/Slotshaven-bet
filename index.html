@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Slotshaven Betting</title>
+    <title>Slots bet</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -52,15 +52,15 @@
         <div class="nav-wrapper black">
 
             <div class="container">
-                <a href="#" class="brand-logo"> Slotshaven Betting </a>
+                <a href="#" class="brand-logo" id="home"> Slots Bet </a>
                 <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
 
                 <ul class="hide-on-med-and-down right">
 
                     <li id="menu-page-one"><a href="#bet">Bet</a></li>
-                    <li id="menu-page-two"><a href="#regler">Regler</a></li>
+                    <li id="menu-page-regler"><a href="#regler">Regler</a></li>
                     <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
-                    <li id="menu-page-four"><a href="#om os">Om os</a></li>
+                    <li id="menu-page-omos"><a href="#om os">Om os</a></li>
                     <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
                         <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
 
@@ -72,9 +72,9 @@
     <ul class="sidenav" id="slide_out">
 
         <li id="menu-page-one"><a href="#bet">Bet</a></li>
-        <li id="menu-page-two"><a href="#regler">Regler</a></li>
+        <li id="menu-page-regler"><a href="#regler">Regler</a></li>
         <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
-        <li id="menu-page-four"><a href="#omos">Om os</a></li>
+        <li id="menu-page-omos"><a href="#omos">Om os</a></li>
         <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
 
         <div class="container">
@@ -171,6 +171,38 @@
                 </div>
             </div>
         </div>
+        <div id="page-regler">
+            <div class="row">
+                <div class="col s50 m50">
+                    <h4>Regler</h4>
+                    <li>Du better penge</li>
+                    <li>Du vinder øl</li>
+                    <p>Det er så nemt</p>
+                    <li>Du har 14 dages retur ret</li>
+                    <li>Hvis du trækker pengene ud tidligere får du kun penge for det den er faldet til</li>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-omos">
+            <div class="row">
+                <div class="col s50 m50">
+                    <h4>Om os</h4>
+                    <h6>Skaberen</h6>
+                    <p>Jeg er en elev som vil bruge sine programmerings timer til noget</p>
+                    <p>Jeg kommer fra R klassen som er slagger klassen</p>
+                    <p>Vi gik fra 26-21 elever mellem 1-2g og det vil vi vinde penge på</p>
+
+                    <h6>Slots bet</h6>
+                    <p>Slots bet er et firma der gør så man kan vinde øl på din venner</p>
+                    <p>I tilmelder jeres klasse og i kan vinde øl på karaktere og udsmidning</p>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </body>
 
@@ -185,8 +217,35 @@
 
     });
 
+    $('#menu-page-regler').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').show();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+       //$('#page-login').hide();ø
+    });
+
+    $('#home').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').show();
+        $('#page-omos').hide();
+       //$('#page-login').hide();ø
+    });
+   
+    $('#menu-page-omos').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').show();
+       //$('#page-login').hide();ø
+    });
+
+
     $('#page-login').hide();
     $('#page-off').hide();
+    $('#page-regler').hide();
+    $('#page-omos').hide();
 </script>
 
 </html>
