@@ -18,6 +18,8 @@
     <!--JAVASCRIPTS 
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+    <script type="text/javascript" src="Slotsnews.json"></script>
+
     <!--jQuery to make easier http calls-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -59,10 +61,10 @@
 
                     <li id="menu-page-one"><a href="#bet">Bet</a></li>
                     <li id="menu-page-regler"><a href="#regler">Regler</a></li>
-                    <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
+                    <li id="menu-page-slotsnews" onclick="preload()"><a href="#news">Slotsnews</a></li>
                     <li id="menu-page-omos"><a href="#om os">Om os</a></li>
                     <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
-                        <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
+                    <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
 
                 </ul>
             </div>
@@ -73,8 +75,8 @@
 
         <li id="menu-page-one"><a href="#bet">Bet</a></li>
         <li id="menu-page-regler"><a href="#regler">Regler</a></li>
-        <li id="menu-page-tre"><a href="#news">Slotsnews</a></li>
-        <li id="menu-page-omos"><a href="#omos">Om os</a></li>
+        <li id="menu-page-slotsnews"><a href="#news">Slotsnews</a></li>
+        <li id="menu-page-omos"><a href="#om os">Om os</a></li>
         <li id="menu-page-five"><a href="#kontakt">Kontakt</a></li>
 
         <div class="container">
@@ -196,11 +198,28 @@
                     <h6>Slots bet</h6>
                     <p>Slots bet er et firma der gør så man kan vinde øl på din venner</p>
                     <p>I tilmelder jeres klasse og i kan vinde øl på karaktere og udsmidning</p>
-                    
+
                 </div>
             </div>
         </div>
 
+        <div id="page-slotsnews">
+            <div class="row">
+                <div class="col s50 m50">
+                    <script>
+                        var data;
+
+                        function preload() {
+                            data = loadJSON("/Slotsnews.json");
+                        }
+
+                        function setup() {
+                            console.log(data);
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
 
 
     </div>
@@ -213,7 +232,7 @@
 
     $('#menu-page-login').click(function () {
         $('#page-login').show();
-       //$('#page-login').hide();
+        //$('#page-login').hide();
 
     });
 
@@ -222,7 +241,8 @@
         $('#page-regler').show();
         $('#page-one').hide();
         $('#page-omos').hide();
-       //$('#page-login').hide();ø
+        $('#page-slotsnews').hide();
+        //$('#page-login').hide();ø
     });
 
     $('#home').click(function () {
@@ -230,15 +250,27 @@
         $('#page-regler').hide();
         $('#page-one').show();
         $('#page-omos').hide();
-       //$('#page-login').hide();ø
+        $('#page-slotsnews').hide();
+        //$('#page-login').hide();ø
     });
-   
+
     $('#menu-page-omos').click(function () {
         $('#page-login').hide();
         $('#page-regler').hide();
         $('#page-one').hide();
         $('#page-omos').show();
-       //$('#page-login').hide();ø
+        $('#page-slotsnews').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-slotsnews').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-slotsnews').show();
+        //$('#page-login').hide();ø
     });
 
 
@@ -246,6 +278,7 @@
     $('#page-off').hide();
     $('#page-regler').hide();
     $('#page-omos').hide();
+    $('#page-slotsnews').hide();
 </script>
 
 </html>
