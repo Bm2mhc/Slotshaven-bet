@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Slots bet</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--JAVASCRIPTS 
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <script type="text/javascript" src="Slotsnews.json"></script>
+
+    <!--jQuery to make easier http calls-->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <!--Import Handlebars-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="css/mystyles.css">
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!----Firebase
+    --------------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCBDhxn75PGSX1ZeksfUwxkYnGr77p37Gg",
+            authDomain: "slotshaven-bet.firebaseapp.com",
+            databaseURL: "https://slotshaven-bet.firebaseio.com",
+            projectId: "slotshaven-bet",
+            storageBucket: "slotshaven-bet.appspot.com",
+            messagingSenderId: "931978310597"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main>
+        <nav>
+            <div class="nav-wrapper black">
+
+                <div class="container">
+                    <a href="#" class="brand-logo" id="home"> Slots Bet </a>
+                    <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
+
+                    <ul class="hide-on-med-and-down right">
+
+                        <li id="menu-page-one"><a href="#bet">Bet</a></li>
+                        <li id="menu-page-regler"><a href="#regler">Regler</a></li>
+                        <li id="menu-page-slotsnews" onclick="preload()"><a href="#news">Slotsnews</a></li>
+                        <li id="menu-page-omos"><a href="#om os">Om os</a></li>
+                        <li id="menu-page-kontakt"><a href="#kontakt">Kontakt</a></li>
+                        <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="slide_out">
+
+            <li id="menu-page-one2"><a href="#bet">Bet</a></li>
+            <li id="menu-page-regler2"><a href="#regler">Regler</a></li>
+            <li id="menu-page-slotsnews2" onclick="preload()"><a href="#news">Slotsnews</a></li>
+            <li id="menu-page-omos2"><a href="#om os">Om os</a></li>
+            <li id="menu-page-kontakt2"><a href="#kontakt">Kontakt</a></li>
+
+            <div class="container" id="Login">
+                <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+                    style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
+                    <div class="section"></div>
+                    <div class="section"></div>
+
+                    <div class="section"><i class="mdi-alert-error red-text"></i></div>
+
+
+                    <div class='row'>
+                        <div class='input-field col s12'>
+                            <input class='validate' type="text" name='username' id='email' required />
+                            <label for='email'>Username</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='input-field col m12'>
+                            <input class='validate' type='password' name='password' id='password' required />
+                            <label for='password'>Password</label>
+                        </div>
+                        <label style='float: right;'>
+                            <a><b style="color: #696969;">Forgot Password?</b></a>
+                        </label>
+                        <label style='float: left;'>
+                            <a><b style="color: #696969;">Not a user?</b></a>
+                        </label>
+                    </div>
+                    <br />
+                    <center>
+                        <div class='row'>
+                            <button style="margin-left:65px;" type='submit' name='btn_login'
+                                class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+
+
+        </ul>
+
+
+        <div class="container" style="margin-top: 1%" id="Login2">
+            <div id="page-login">
+                <div class="hide-on-med-and-down right" style="margin-right: 3%">
+                    <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+                        style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 100px; solid #EEE;">
+                        <div class="section"></div>
+                        <div class="section"></div>
+
+                        <div class="section"><i class="mdi-alert-error red-text"></i></div>
+
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type="text" name='username' id='email' required />
+                                <label for='email'>Username</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='input-field col m12'>
+                                <input class='validate' type='password' name='password' id='password' required />
+                                <label for='password'>Password</label>
+                            </div>
+                            <label style='float: right;'>
+                                <a><b style="color: #696969;">Forgot Password?</b></a>
+                            </label>
+                            <label style='float: left;'>
+                                <a><b style="color: #696969;">Not a user?</b></a>
+                            </label>
+                        </div>
+                        <br />
+                        <center>
+                            <div class='row'>
+                                <button style="margin-left:65px;" type='submit' name='btn_login'
+                                    class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--------------------------------------------------------------------------------------------------------------->
+        <div class="container" style="margin-top: 1%">
+            <div id="page-one">
+                <div class="row">
+                    <div class="col s50 m50">
+                        <img
+                            src="https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop&ixid=eyJhcHBfaWQiOjF9">
+                        <h4>Betting på dine klasse kammerater</h4>
+                        <p>Bet på dine venner om de kan komme igennem gymnasiet i en omgang.
+                        </p>
+                        <p>Vind alkohol på dine venner</p>
+                        <li>bet øl</li>
+                        <li>bet en kasse</li>
+                        <li>bet shotsflasker</li>
+                        <li>bare bet med alkohol</li>
+
+                        <p>Lyder godt? så bare kom igang</p>
+
+                    </div>
+                </div>
+            </div>
+            <div id="page-regler">
+                <div class="row">
+                    <div class="col s50 m50">
+                        <h4>Regler</h4>
+                        <li>Du better penge</li>
+                        <li>Du vinder øl</li>
+                        <p>Det er så nemt</p>
+                        <li>Du har 14 dages retur ret</li>
+                        <li>Hvis du trækker pengene ud tidligere får du kun penge for det den er faldet til</li>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-omos">
+                <div class="row">
+                    <div class="col s50 m50">
+                        <h4>Om os</h4>
+                        <h5>Skaberen</h5>
+                        <p>Jeg er en elev som vil bruge sine programmerings timer til noget</p>
+                        <p>Jeg kommer fra R klassen som er slagger klassen</p>
+                        <p>Vi gik fra 26-21 elever mellem 1-2g og det vil vi vinde penge på</p>
+                        <p>Derfor skabte jeg dette programmerings progjekt som jeg kunne bruge til eksamen</p>
+
+                        <h5>Slots bet</h5>
+                        <p>Slots bet er et firma der gør så man kan vinde øl på din venner</p>
+                        <p>I tilmelder jeres klasse og i kan vinde øl på karaktere og udsmidning</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-slotsnews">
+                <div class="row">
+                    <div class="col s50 m50">
+                        <h4>SlotsNews</h4>
+                        <script>
+                            var data;
+
+                            function preload() {
+                                data = JSON.parse("Slotsnews.json");
+                            }
+
+                            function setup() {
+                                console.log(data);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-kontakt">
+                <div class="row">
+                    <div class="col s50 m50">
+                        <h4>Kontakt</h4>
+                        <p>lectio : Marinus Hurni Christensen, 2r (SH)</p>
+                        <p>Lokale : 24</p>
+                        <p>20 gangen</p>
+
+                        <a href="#" class="black-text">Instagram : @marinus_h_christensen</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 l6">
+                    <h5>Kontakt</h5>
+                    <p>lectio : Marinus Hurni Christensen, 2r (SH)</p>
+                    <p>Lokale : 24</p>
+                    <p>20 gang</p>
+                </div>
+                <div class="col s12 l4 offset-l2">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="#" class="grey-text  text-lighten-3">Kontakt</a></li>
+                        <li><a href="#" class="grey-text  text-lighten-3">Job</a></li>
+                        <li><a href="#" class="grey-text  text-lighten-3">Bet</a></li>
+                        re <li><a href="#" class="grey-text  text-lighten-3">SlotsNews</a></li>
+                        <li><a href="#" class="grey-text  text-lighten-3">om os</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright grey darken-4">
+            <div class="container center-align">&copy Marinus Hurni Christensen</div>
+        </div>
+    </footer>
+</body>
+
+
+
+
+
+<script>
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu, {});
+
+    $('#menu-page-login').click(function () {
+        $('#page-login').animate({
+            width: 'toggle'
+        }, 350);
+        //$('#page-login').hide();
+
+    });
+
+    $('#menu-page-regler').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').show();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#home').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').show();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-omos').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').show();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-slotsnews').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-slotsnews').show();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-regler2').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').show();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-omos2').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').show();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-slotsnews2').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-slotsnews').show();
+        $('#page-kontakt').hide();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-kontakt').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').show();
+        //$('#page-login').hide();ø
+    });
+
+    $('#menu-page-kontakt2').click(function () {
+        $('#page-login').hide();
+        $('#page-regler').hide();
+        $('#page-one').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').show();
+        //$('#page-login').hide();ø
+    });
+
+
+    $('#page-login').hide();
+    $('#page-off').hide();
+    $('#page-regler').hide();
+    $('#page-omos').hide();
+    $('#page-slotsnews').hide();
+    $('#page-kontakt').hide();
+</script>
+
+</html>
