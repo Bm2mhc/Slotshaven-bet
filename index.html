@@ -94,7 +94,7 @@
 
             <li id="menu-page-one2"><a href="#bet">Bet</a></li>
             <li id="menu-page-regler2"><a href="#regler">Regler</a></li>
-            <li id="menu-page-slotsnews2"><a href="#news">Slotsnews</a></li>
+            <li id="menu-page-slotsnews2" onclick="preload()"><a href="#news">Slotsnews</a></li>
             <li id="menu-page-omos2"><a href="#om os">Om os</a></li>
             <li id="menu-page-kontakt2"><a href="#kontakt">Kontakt</a></li>
 
@@ -186,7 +186,8 @@
             <div id="page-one">
                 <div class="row">
                     <div class="col s50 m50">
-                            <img src="https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop&ixid=eyJhcHBfaWQiOjF9">
+                        <img
+                            src="https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=300&h=300&fit=crop&ixid=eyJhcHBfaWQiOjF9">
                         <h4>Betting på dine klasse kammerater</h4>
                         <p>Bet på dine venner om de kan komme igennem gymnasiet i en omgang.
                         </p>
@@ -239,7 +240,7 @@
                             var data;
 
                             function preload() {
-                                data = loadJSON("/Slotsnews.json");
+                                data = JSON.parse("Slotsnews.json");
                             }
 
                             function setup() {
@@ -298,15 +299,12 @@
 
 
 
-
-
-
 <script>
     const slide_menu = document.querySelectorAll(".sidenav");
     M.Sidenav.init(slide_menu, {});
 
     $('#menu-page-login').click(function () {
-        $('#page-login').show();
+        $('#page-login').animate({width:'toggle'},350);
         //$('#page-login').hide();
 
     });
