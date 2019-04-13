@@ -13,6 +13,8 @@ For at skabe hjemmesiden bruger jeg HTML og Javascript til opbyging af hjemmesid
 
 Jeg bruger materializecss og jQuery. Materialize bruger jeg til header, footer, login, billeder, knapper og meget mere. jQuery bruger jeg til animationer og for at skabe et one-page website.
 
+Til slotsNews kommer der handlebars til alle de forskelige nyheder.
+
 Samtidig har jeg databasen Firebase som er skabt af Google. Firebase er for at gemme login oplysninger og hoste min hjemmeside.
 
 
