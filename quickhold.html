@@ -46,66 +46,126 @@
 </head>
 
 <body>
-<div class="container" id="login_div">
-  <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
-    style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
-    <div class="section"></div>
-    <div class="section"></div>
+  <div class="container" id="login_div">
+    <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+      style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
+      <div class="section"></div>
+      <div class="section"></div>
 
-    <div class="section"><i class="mdi-alert-error red-text"></i></div>
+      <div class="section"><i class="mdi-alert-error red-text"></i></div>
 
 
-    <div class='row'>
-      <div class='input-field col s12'>
-        <input class='validate' type="text" name='username' id='email_field' required />
-        <label for='email'>Username</label>
-      </div>
-    </div>
-    <div class='row'>
-      <div class='input-field col m12'>
-        <input class='validate' type='password' name='password' id='password_field' required />
-        <label for='password'>Password</label>
-      </div>
-      <label style='float: right;'>
-        <a><b style="color: #696969;">Forgot Password?</b></a>
-      </label>
-      <label style='float: left;'>
-        <a><b style="color: #696969;">Not a user?</b></a>
-      </label>
-    </div>
-    <br />
-    <center>
       <div class='row'>
-        <button style="margin-left:65px;" type='submit' name='btn_login'
-          class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1' onclick="login()">Login</button>
+        <div class='input-field col s12'>
+          <input class='validate' type="text" name='username' id='email_field' required />
+          <label for='email'>Username</label>
+        </div>
       </div>
-    </center>
+      <div class='row'>
+        <div class='input-field col m12'>
+          <input class='validate' type='password' name='password' id='password_field' required />
+          <label for='password'>Password</label>
+        </div>
+        <label style='float: right;'>
+          <a><b style="color: #696969;">Forgot Password?</b></a>
+        </label>
+        <label style='float: left;'>
+          <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1' id="createuser">Not
+            a user?</button>
+        </label>
+      </div>
+      <br />
+      <center>
+        <div class='row'>
+          <button style="margin-left:65px;" type='submit' name='btn_login'
+            class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+            onclick="login()">Login</button>
+        </div>
+      </center>
+    </div>
   </div>
-</div>
+  <!-------------------------------------------------------->
+  <div class="logedin" id="user_div">
+    <h3>Welcome</h3>
+    <button class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1' onclick="logout()">log
+      out</button>
+  </div>
+  <!-------------------------------------------------------->
+  <div class="container" id="createlogin_div">
+    <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+      style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
+      <div class="section"></div>
+      <div class="section"></div>
 
-<div class="logedin" id="user_div">
-<h3>Welcome</h3>
-<button class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1' onclick="logout()">log out</button>
-</div>
+      <div class="section"><i class="mdi-alert-error red-text"></i></div>
 
 
-<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCBDhxn75PGSX1ZeksfUwxkYnGr77p37Gg",
-    authDomain: "slotshaven-bet.firebaseapp.com",
-    databaseURL: "https://slotshaven-bet.firebaseio.com",
-    projectId: "slotshaven-bet",
-    storageBucket: "slotshaven-bet.appspot.com",
-    messagingSenderId: "931978310597"
-  };
-  firebase.initializeApp(config);
-</script>
+      <div class='row'>
+        <div class='input-field col s12'>
+          <input class='validate' type="text" name='username' id='email_field2' required />
+          <label for='email'>Email</label>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='input-field col m12'>
+          <input class='validate' type='password' name='password' id='password_field2' required />
+          <label for='password'>Password</label>
+        </div>
+        <div class='input-field col m12'>
+          <input class='validate' type='password' name='password' id='password_field2' required />
+          <label for='password'>Retype Password</label>
+        </div>
+        <label style='float: left;'>
+          <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+            id="alreadyuser">user?</button>
+        </label>
+      </div>
+      <br />
+      <center>
+        <div class='row'>
+          <button style="margin-left:65px;" type='submit' name='btn_login'
+            class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1' onclick="create()">Create
+            User</button>
+        </div>
+      </center>
+    </div>
+  </div>
+  </div>
 
-<script src="quickhold.js"></script>
+  <script>
+    $('#createuser').click(function () {
+      $('#createlogin_div').show();
+      $('#login_div').hide();
+    })
+
+    $('#alreadyuser').click(function () {
+      $('#createlogin_div').hide();
+      $('#login_div').show();
+    })
+
+    $('#createlogin_div').hide();
+  </script>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCBDhxn75PGSX1ZeksfUwxkYnGr77p37Gg",
+      authDomain: "slotshaven-bet.firebaseapp.com",
+      databaseURL: "https://slotshaven-bet.firebaseio.com",
+      projectId: "slotshaven-bet",
+      storageBucket: "slotshaven-bet.appspot.com",
+      messagingSenderId: "931978310597"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="quickhold.js"></script>
 
 
 
 </body>
+
 </html>
