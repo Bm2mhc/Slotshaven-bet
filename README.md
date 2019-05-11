@@ -1,6 +1,8 @@
 # Slots bet
 A slotshaven 2.R betting site. 
 
+*https://bm2mhc.github.io/Slotshaven-bet/*
+
 # Resume
 
 Slots bet er en hjemmeside der skal bruges til at bette på venner i din klasse. Konceptet er at man kan vinde alkohol på at stemme på forskelige ting fra din klasse. Der er en tilmeld klasse hvor du kan tilmelde dig og komme med de ting i vil bette på. Det kan være karaktere, udsmiding eller hvad i nu vil i jeres klasse.
