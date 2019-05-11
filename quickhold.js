@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     $('#createlogin_div').hide();
     $('#user_div').show();
     $('#login_div').hide();
+    $('#login_div2').hide();
 
   } else {
     // No user is signed in.
@@ -18,6 +19,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     $('#createlogin_div').hide();
     $('#user_div').hide();
     $('#login_div').show();
+    $('#login_div2').show();
   }
 });
 
@@ -25,6 +27,24 @@ function login() {
 
   var userEmail = document.getElementById("email_field").value;
   var userpassword = document.getElementById("password_field").value;
+
+  console.log(userEmail + " " + userpassword);
+
+  //firebase.auth().createUserWithEmailAndPassword(userEmail, userpassword)
+  firebase.auth().signInWithEmailAndPassword(userEmail, userpassword).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error: " + errorMessage);
+    // ...
+  });
+
+}
+function login2() {
+
+  var userEmail = document.getElementById("email_field3").value;
+  var userpassword = document.getElementById("password_field3").value;
 
   console.log(userEmail + " " + userpassword);
 

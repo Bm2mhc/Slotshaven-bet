@@ -44,23 +44,6 @@
     <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.ico">
-
-    <!----Firebase
-    --------------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCBDhxn75PGSX1ZeksfUwxkYnGr77p37Gg",
-            authDomain: "slotshaven-bet.firebaseapp.com",
-            databaseURL: "https://slotshaven-bet.firebaseio.com",
-            projectId: "slotshaven-bet",
-            storageBucket: "slotshaven-bet.appspot.com",
-            messagingSenderId: "931978310597"
-        };
-        firebase.initializeApp(config);
-    </script>
-
 </head>
 
 <body>
@@ -98,7 +81,7 @@
             <li id="menu-page-omos2"><a href="#om os">Om os</a></li>
             <li id="menu-page-kontakt2"><a href="#kontakt">Kontakt</a></li>
 
-            <div class="container" id="Login">
+            <div class="container" id="login_div">
                 <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
                     style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
                     <div class="section"></div>
@@ -109,27 +92,30 @@
 
                     <div class='row'>
                         <div class='input-field col s12'>
-                            <input class='validate' type="text" name='username' id='email' required />
+                            <input class='validate' type="text" name='username' id='email_field' required />
                             <label for='email'>Username</label>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='input-field col m12'>
-                            <input class='validate' type='password' name='password' id='password' required />
+                            <input class='validate' type='password' name='password' id='password_field' required />
                             <label for='password'>Password</label>
                         </div>
                         <label style='float: right;'>
                             <a><b style="color: #696969;">Forgot Password?</b></a>
                         </label>
                         <label style='float: left;'>
-                            <a><b style="color: #696969;">Not a user?</b></a>
+                            <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                                id="createuser">Not
+                                a user?</button>
                         </label>
                     </div>
                     <br />
                     <center>
                         <div class='row'>
                             <button style="margin-left:65px;" type='submit' name='btn_login'
-                                class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
+                                class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                                onclick="login()">Login</button>
                         </div>
                     </center>
                 </div>
@@ -138,46 +124,96 @@
 
         </ul>
 
+        <div class="logedin" id="user_div">
+            <h3>Welcome</h3>
+            <button class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                onclick="logout()">log
+                out</button>
+        </div>
 
-        <div class="container" style="margin-top: 1%" id="Login2">
+
+        <div class="container" style="margin-top: 1%" id="login_div2">
             <div id="page-login">
-                <div class="hide-on-med-and-down right" style="margin-right: 3%">
-                    <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
-                        style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 100px; solid #EEE;">
-                        <div class="section"></div>
-                        <div class="section"></div>
+                <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+                    style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
+                    <div class="section"></div>
+                    <div class="section"></div>
 
-                        <div class="section"><i class="mdi-alert-error red-text"></i></div>
+                    <div class="section"><i class="mdi-alert-error red-text"></i></div>
 
 
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="text" name='username' id='email' required />
-                                <label for='email'>Username</label>
-                            </div>
+                    <div class='row'>
+                        <div class='input-field col s12'>
+                            <input class='validate' type="text" name='username' id='email_field3' required />
+                            <label for='email'>Username</label>
                         </div>
-                        <div class='row'>
-                            <div class='input-field col m12'>
-                                <input class='validate' type='password' name='password' id='password' required />
-                                <label for='password'>Password</label>
-                            </div>
-                            <label style='float: right;'>
-                                <a><b style="color: #696969;">Forgot Password?</b></a>
-                            </label>
-                            <label style='float: left;'>
-                                <a><b style="color: #696969;">Not a user?</b></a>
-                            </label>
-                        </div>
-                        <br />
-                        <center>
-                            <div class='row'>
-                                <button style="margin-left:65px;" type='submit' name='btn_login'
-                                    class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
-                            </div>
-                        </center>
                     </div>
+                    <div class='row'>
+                        <div class='input-field col m12'>
+                            <input class='validate' type='password' name='password' id='password_field3' required />
+                            <label for='password'>Password</label>
+                        </div>
+                        <label style='float: right;'>
+                            <a><b style="color: #696969;">Forgot Password?</b></a>
+                        </label>
+                        <label style='float: left;'>
+                            <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                                id="createuser_2">Not
+                                a user?</button>
+                        </label>
+                    </div>
+                    <br />
+                    <center>
+                        <div class='row'>
+                            <button style="margin-left:65px;" type='submit' name='btn_login'
+                                class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                                onclick="login2()">Login</button>
+                        </div>
+                    </center>
                 </div>
             </div>
+        </div>
+
+        <div class="container" id="createlogin_div">
+            <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
+                style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px; margin-top: 10px; solid #EEE;">
+                <div class="section"></div>
+                <div class="section"></div>
+
+                <div class="section"><i class="mdi-alert-error red-text"></i></div>
+
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type="text" name='username' id='email_field2' required />
+                        <label for='email'>Email</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col m12'>
+                        <input class='validate' type='password' name='password' id='password_field2' required />
+                        <label for='password'>Password</label>
+                    </div>
+                    <div class='input-field col m12'>
+                        <input class='validate' type='password' name='password' id='password_field2' required />
+                        <label for='password'>Retype Password</label>
+                    </div>
+                    <label style='float: left;'>
+                        <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                            id="user">user?</button>
+                    </label>
+                </div>
+                <br />
+                <center>
+                    <div class='row'>
+                        <button style="margin-left:65px;" type='submit' name='btn_login'
+                            class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                            onclick="create()">Create
+                            User</button>
+                    </div>
+                </center>
+            </div>
+        </div>
         </div>
 
 
@@ -346,159 +382,205 @@
             <div class="container center-align">&copy Marinus Hurni Christensen</div>
         </div>
     </footer>
+
+
+
+
+    <script>
+        const slide_menu = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(slide_menu, {});
+
+        $('#menu-page-login').click(function () {
+            $('#page-login').animate({
+                width: 'toggle'
+            }, 350);
+            //$('#page-login').hide();
+
+        });
+
+        $('#menu-page-regler').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').show();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#home').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').show();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-omos').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').show();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-slotsnews').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').show();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-regler2').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').show();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-omos2').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').show();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-slotsnews2').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').show();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-kontakt').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').show();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-kontakt2').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').show();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-bet').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').show();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-page-2').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').show();
+            //$('#page-login').hide();ø
+        });
+
+        $('#createuser').click(function () {
+            $('#createlogin_div').show();
+            $('#login_div').hide();
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+        })
+        $('#createuser_2').click(function () {
+            $('#login_div').hide();
+            $('#page-login').hide();
+            $('#createlogin_div').animate({
+                width: 'toggle'
+            }, 350);
+        })
+
+        $('#user').click(function () {
+            $('#page-login').animate({
+                width: 'toggle'
+            }, 350);
+            $('#createlogin_div').hide();
+            //$('#page-login').hide();
+
+        })
+
+
+        $('#page-login').hide();
+        $('#page-off').hide();
+        $('#page-regler').hide();
+        $('#page-omos').hide();
+        $('#page-slotsnews').hide();
+        $('#page-kontakt').hide();
+        $('#page-bet').hide();
+        $('#createlogin_div').hide();
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCBDhxn75PGSX1ZeksfUwxkYnGr77p37Gg",
+            authDomain: "slotshaven-bet.firebaseapp.com",
+            databaseURL: "https://slotshaven-bet.firebaseio.com",
+            projectId: "slotshaven-bet",
+            storageBucket: "slotshaven-bet.appspot.com",
+            messagingSenderId: "931978310597"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="quickhold.js"></script>
+
 </body>
-
-
-
-
-
-<script>
-    const slide_menu = document.querySelectorAll(".sidenav");
-    M.Sidenav.init(slide_menu, {});
-
-    $('#menu-page-login').click(function () {
-        $('#page-login').animate({
-            width: 'toggle'
-        }, 350);
-        //$('#page-login').hide();
-
-    });
-
-    $('#menu-page-regler').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').show();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#home').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').show();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-omos').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').show();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-slotsnews').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').show();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-regler2').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').show();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-omos2').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').show();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-slotsnews2').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').show();
-        $('#page-kontakt').hide();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-kontakt').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').show();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-kontakt2').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').show();
-        $('#page-bet').hide();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-bet').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').show();
-        //$('#page-login').hide();ø
-    });
-
-    $('#menu-page-2').click(function () {
-        $('#page-login').hide();
-        $('#page-regler').hide();
-        $('#page-one').hide();
-        $('#page-omos').hide();
-        $('#page-slotsnews').hide();
-        $('#page-slotsnews').hide();
-        $('#page-kontakt').hide();
-        $('#page-bet').show();
-        //$('#page-login').hide();ø
-    });
-
-
-    $('#page-login').hide();
-    $('#page-off').hide();
-    $('#page-regler').hide();
-    $('#page-omos').hide();
-    $('#page-slotsnews').hide();
-    $('#page-kontakt').hide();
-    $('#page-bet').hide();
-</script>
 
 </html>
