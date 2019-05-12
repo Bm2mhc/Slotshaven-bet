@@ -58,6 +58,8 @@ function login2() {
     // ...
   });
 
+ 
+
 }
 
 function create() {
@@ -75,8 +77,6 @@ function create() {
 
     window.alert("Error: " + errorMessage);
     // ...
-  });
-
 }
 
 function logout() {
