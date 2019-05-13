@@ -6,9 +6,24 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("createlogin_div").style.dispaly;
 
     $('#createlogin_div').hide();
+    $('#menu-page-login').hide();
+    $('#menu-minebets').show();
     $('#user_div').show();
     $('#login_div').hide();
     $('#login_div2').hide();
+
+    var user = firebase.auth().currentUser;
+
+    if (user != null){
+
+      var email_id = user.email;
+
+      document.getElementById("user_parda").innerHTML = "Velkommen " + email_id;
+
+    }
+
+
+
 
   } else {
     // No user is signed in.
@@ -17,6 +32,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("createlogin_div").style.dispaly;
 
     $('#createlogin_div').hide();
+    $('#menu-page-login').show();
+    $('#menu-minebets').hide();
     $('#user_div').hide();
     $('#login_div').show();
     $('#login_div2').show();
@@ -58,9 +75,9 @@ function login2() {
     // ...
   });
 
- 
-
 }
+
+
 
 function create() {
 

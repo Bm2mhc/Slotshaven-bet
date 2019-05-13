@@ -63,9 +63,9 @@
 
                         <li id="menu-page-bet"><a href="#bet">Specielle odds</a></li>
                         <li id="menu-page-regler"><a href="#regler">Regler</a></li>
-                        <li id="menu-page-slotsnews" onclick="SlotsNEWS()"><a href="#news">Slotsnews</a></li>
                         <li id="menu-page-omos"><a href="#om os">Om os</a></li>
                         <li id="menu-page-kontakt"><a href="#kontakt">Kontakt</a></li>
+                        <li id="menu-minebets"><a href="#minebets">Mine bets</a></li>
                         <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
                     </ul>
                 </div>
@@ -120,11 +120,17 @@
                 </div>
             </div>
         </ul>
-        <div class="logedin" id="user_div">
-            <h3>Welcome</h3>
+        <div class="container" id="user_div">
+            <h3>Velkommen</h3>
+            <p id="user_parda">Du er lige nu logget ind. Log ud: </p>
             <button class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
                 onclick="logout()">log
                 out</button>
+        </div>
+
+        <div class="container" id="minebets-div">
+            <h3> Mine bets </h3>
+
         </div>
 
 
@@ -183,7 +189,7 @@
 
                 <div class='row'>
                     <div class='input-field col s12'>
-                        <input class='validate' type="text" name='username' id='email_field2' required />
+                        <input class='validate' type="text" name='email' id='email_field2' required />
                         <label for='email'>Email</label>
                     </div>
                 </div>
@@ -397,6 +403,7 @@
         });
 
         $('#menu-page-regler').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').show();
             $('#page-one').hide();
@@ -408,6 +415,7 @@
         });
 
         $('#home').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').show();
@@ -419,6 +427,7 @@
         });
 
         $('#menu-page-omos').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -430,6 +439,7 @@
         });
 
         $('#menu-page-slotsnews').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -442,6 +452,7 @@
         });
 
         $('#menu-page-regler2').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').show();
             $('#page-one').hide();
@@ -453,6 +464,7 @@
         });
 
         $('#menu-page-omos2').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -464,6 +476,7 @@
         });
 
         $('#menu-page-slotsnews2').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -476,6 +489,7 @@
         });
 
         $('#menu-page-kontakt').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -488,6 +502,7 @@
         });
 
         $('#menu-page-kontakt2').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -500,6 +515,7 @@
         });
 
         $('#menu-page-bet').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -512,6 +528,7 @@
         });
 
         $('#menu-page-2').click(function () {
+            $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
@@ -524,6 +541,7 @@
         });
 
         $('#createuser').click(function () {
+            $('#minebets-div').hide();
             $('#createlogin_div').show();
             $('#login_div').hide();
             $('#page-login').hide();
@@ -552,7 +570,20 @@
 
         })
 
+        $('#menu-minebets').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            $('#minebets-div').show();
+            //$('#page-login').hide();ø
+        });
 
+        $('#minebets-div').hide();
         $('#page-login').hide();
         $('#page-off').hide();
         $('#page-regler').hide();
