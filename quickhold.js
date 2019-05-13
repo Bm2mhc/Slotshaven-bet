@@ -77,6 +77,7 @@ function create() {
 
     window.alert("Error: " + errorMessage);
     // ...
+  });
 }
 
 function logout() {
