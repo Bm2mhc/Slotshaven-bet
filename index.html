@@ -76,9 +76,9 @@
 
             <li id="menu-page-bet2"><a href="#bet">Specielle odds</a></li>
             <li id="menu-page-regler2"><a href="#regler">Regler</a></li>
-            <li id="menu-page-slotsnews2" onclick="SlotsNEWS()" onclick="setup()"><a href="#news">Slotsnews</a></li>
             <li id="menu-page-omos2"><a href="#om os">Om os</a></li>
             <li id="menu-page-kontakt2"><a href="#kontakt">Kontakt</a></li>
+            <li id="menu-minebets2"><a href="#minebets">Mine bets</a></li>
 
             <div class="container" id="login_div">
                 <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
@@ -121,18 +121,16 @@
             </div>
         </ul>
         <div class="container" id="user_div">
-            <h3>Velkommen</h3>
-            <p id="user_parda">Du er lige nu logget ind. Log ud: </p>
-            <button class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
-                onclick="logout()">log
-                out</button>
+            <div class="col s12 l6">
+                <h3>Velkommen</h3>
+                <p id="user_parda">Du er lige nu logget ind. Log ud: </p>
+            </div>
+            <div class="col s12 l5 offset-l1">
+                <button id="home2" class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                    onclick="logout()">log
+                    out</button>
+            </div>
         </div>
-
-        <div class="container" id="minebets-div">
-            <h3> Mine bets </h3>
-
-        </div>
-
 
 
 
@@ -271,7 +269,7 @@
                         class="right">
                 </div>
                 <div class="col s12 l6">
-                    <h4>Om os</h4>"
+                    <h4>Om os</h4>
                     <h5>Skaberen</h5>
                     <p>Jeg er en elev som vil bruge sine programmerings timer til noget</p>
                     <p>Jeg kommer fra R klassen som er slagger klassen</p>
@@ -357,8 +355,13 @@
             </div>
         </div>
 
-
-        </div>
+        <div class="container" id="minebets-div">
+                <h3> Mine bets </h3>
+    
+                <h5>Klasse: </h5>
+    
+            </div>
+    
     </main>
 
     <footer class="page-footer black">
@@ -415,6 +418,17 @@
         });
 
         $('#home').click(function () {
+            $('#minebets-div').hide();
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').show();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+        $('#home2').click(function () {
             $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
@@ -571,6 +585,19 @@
         })
 
         $('#menu-minebets').click(function () {
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            $('#minebets-div').show();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-minebets2').click(function () {
             $('#page-login').hide();
             $('#page-regler').hide();
             $('#page-one').hide();
