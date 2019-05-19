@@ -52,7 +52,7 @@ function login() {
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    window.alert("Error: " + errorMessage);
+    window.alert(errorMessage);
     // ...
   });
 
@@ -71,7 +71,7 @@ function login2() {
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    window.alert("Error: " + errorMessage);
+    window.alert(errorMessage);
     // ...
   });
 
@@ -80,9 +80,10 @@ function login2() {
 
 
 function create() {
-
   var userEmail = document.getElementById("email_field2").value;
   var userpassword = document.getElementById("password_field2").value;
+
+
 
   console.log(userEmail + " " + userpassword);
 
@@ -92,10 +93,59 @@ function create() {
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    window.alert("Error: " + errorMessage);
+    window.alert(errorMessage);
     // ...
   });
+
+  
+
+
+
+  writeUserData()
+
+  function writeUserData(userId, username, fornavn, efternavn, klasse) {
+   
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        console.log(user.uid);
+      } else {
+        // User not logged in or has just logged out.
+      }
+    });
+
+    var userId = user.id
+    var firestore = firebase.firestore();
+    var docref = firestore.doc("users/"+userId)
+    var username = document.getElementById("username_field").value;
+    var fornavn = document.getElementById("fornavn_field").value;
+    var efternavn = document.getElementById("efternavn_field").value;
+    var klasse = document.getElementById("klasse_field").value;
+
+    console.log(username + " " + fornavn + " " + efternavn + " " + username + " " + klasse);
+
+    docref.set({
+        username: username,
+        Fornavn: fornavn,
+        Efternavn: efternavn,
+        klasse: klasse
+      })
+      .then(function () {
+        console.log("Document successfully written!");
+      })
+      .catch(function (error) {
+        console.error("Error writing document: ", error);
+      });   
+  }
 }
+
+
+
+
+
+
+
+
 
 function logout() {
 

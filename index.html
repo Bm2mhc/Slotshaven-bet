@@ -196,26 +196,40 @@
                         <input class='validate' type='password' name='password' id='password_field2' required />
                         <label for='password'>Password</label>
                     </div>
-                    <div class='input-field col m12'>
-                        <input class='validate' type='password' name='password' id='password_field2' required />
-                        <label for='password'>Retype Password</label>
-                    </div>
-                    <label style='float: left;'>
-                        <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
-                            id="user">user?</button>
-                    </label>
                 </div>
+                <div class='row'>
+                    <div class='input-field col m12'>
+                        <input class='validate' type='fornavn' name='fornavn' id='fornavn_field' required />
+                        <label for='fornavn'>Fornavn</label>
+                    </div>
+                </div>
+                <div class='input-field col m12'>
+                    <input class='validate' type='efternavn' name='efternavn' id='efternavn_field' required />
+                    <label for='efternavn'>Efternavn</label>
+                </div>
+                <div class='input-field col m12'>
+                    <input class='validate' type='username' name='username' id='username_field' required />
+                    <label for='username'>Username</label>
+                </div>
+                <div class='input-field col m12'>
+                    <input class='validate' type='klasse' name='klasse' id='klasse_field' required />
+                    <label for='klasse'>klasse</label>
+                </div>
+                <label style='float: left;'>
+                    <button class='col  s12 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
+                        id="user">user?</button>
+                </label>
+
                 <br />
                 <center>
                     <div class='row'>
                         <button style="margin-left:65px;" type='submit' name='btn_login'
                             class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
-                            onclick="create()">Create
+                            onclick="create()" onclick=" writeUserData()">Create
                             User</button>
                     </div>
                 </center>
             </div>
-        </div>
         </div>
 
 
@@ -403,7 +417,7 @@
                             <option value="1.R">1.R</option>
                             <option value="1.S">1.S</option>
                             <option value="1.x">1.x</option>
-                            <option value="2.R">2.R</option>
+                            <option value="2R">2.R</option>
                             <option value="2.S">2.S</option>
                             <option value="2.X">2.x</option>
                             <option value="2.Y">2.Y</option>
@@ -414,18 +428,16 @@
                         </select>
                     </div>
                 </div>
-                <div id="2.R">
+                <div id="2R">
                     <h5>Vælg dine bets: </h5>
                     <div class="input-field col s12">
+                        <h>sut pik</h>
 
                     </div>
                 </div>
         </div>
 
-
-
         </form>
-        </div>
 
     </main>
 
@@ -685,16 +697,17 @@
 
             }
         });
+
         $("#htxklasse").change(function () {
-            if ($(this).val() == "2.R") {
-                $("#2.R").show();
+            if ($(this).val() == "2R") {
+                $("#2R").show();
             } else {
-                $("#2.R").hide();
+                $("#2R").hide();
 
             }
         });
 
-        $("#2.R").hide();
+        $("#2R").hide();
         $("#hhxklasse").hide();
         $("#htxklasse").hide();
         $('#minebets-div').hide();
