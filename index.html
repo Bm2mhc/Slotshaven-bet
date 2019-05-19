@@ -356,12 +356,77 @@
         </div>
 
         <div class="container" id="minebets-div">
-                <h3> Mine bets </h3>
-    
-                <h5>Klasse: </h5>
-    
-            </div>
-    
+            <h3> Mine bets </h3>
+
+            <form>
+                <h5>HH eller HTX</h5>
+                <div class="input-field col s12">
+                    <select id="uddannelse">
+                        <option value="disabled">Vælg udannelse</option>
+                        <option value="HHX" id="hhx">HHX</option>
+                        <option value="HTX" id="htx">HTX</option>
+                    </select>
+                </div>
+
+
+
+                <div id="hhxklasse">
+                    <h5>Klasse: </h5>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="disabled">Vælg klasse HHX</option>
+                            <option value="1.A">1.A</option>
+                            <option value="1.B">1.B</option>
+                            <option value="1.C">1.C</option>
+                            <option value="1.D">1.D</option>
+                            <option value="1.E">1.E</option>
+                            <option value="1.F">1.F</option>
+                            <option value="1.H">1.H</option>
+                            <option value="2.A">2.A</option>
+                            <option value="2.B">2.B</option>
+                            <option value="2.C">2.C</option>
+                            <option value="2.D">2.D</option>
+                            <option value="2.E">2.E</option>
+                            <option value="2.F">2.F</option>
+                            <option value="3.A">3.A</option>
+                            <option value="3.B">3.B</option>
+                            <option value="3.C">3.C</option>
+                            <option value="3.D">3.D</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="htxklasse">
+                    <h5>Klasse: </h5>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="disabled">Vælg klasse HTX</option>
+                            <option value="1.R">1.R</option>
+                            <option value="1.S">1.S</option>
+                            <option value="1.x">1.x</option>
+                            <option value="2.R">2.R</option>
+                            <option value="2.S">2.S</option>
+                            <option value="2.X">2.x</option>
+                            <option value="2.Y">2.Y</option>
+                            <option value="3.R">3.R</option>
+                            <option value="3.X">3.X</option>
+                            <option value="3.Y">3.Y</option>
+                            <option value="3.Z">3.Z</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="2.R">
+                    <h5>Vælg dine bets: </h5>
+                    <div class="input-field col s12">
+
+                    </div>
+                </div>
+        </div>
+
+
+
+        </form>
+        </div>
+
     </main>
 
     <footer class="page-footer black">
@@ -610,6 +675,28 @@
             //$('#page-login').hide();ø
         });
 
+        $("#uddannelse").change(function () {
+            if ($(this).val() == "HHX") {
+                $("#hhxklasse").show();
+                $("#htxklasse").hide();
+            } else {
+                $('#hhxklasse').hide();
+                $("#htxklasse").show();
+
+            }
+        });
+        $("#htxklasse").change(function () {
+            if ($(this).val() == "2.R") {
+                $("#2.R").show();
+            } else {
+                $("#2.R").hide();
+
+            }
+        });
+
+        $("#2.R").hide();
+        $("#hhxklasse").hide();
+        $("#htxklasse").hide();
         $('#minebets-div').hide();
         $('#page-login').hide();
         $('#page-off').hide();
@@ -619,6 +706,13 @@
         $('#page-kontakt').hide();
         $('#page-bet').hide();
         $('#createlogin_div').hide();
+
+
+
+
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
