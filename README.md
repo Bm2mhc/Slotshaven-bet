@@ -1,3 +1,5 @@
+*Årsprøve programering B Marinus Hurni Christensen, r2017 2.R
+
 # Slots bet
 A slotshaven 2.R betting site. 
 
