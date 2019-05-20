@@ -130,18 +130,18 @@ function create() {
      
       
     }*/
-    var docref = firestore.doc("users/" + userId)
+    
     var username = document.getElementById("username_field").value;
     var fornavn = document.getElementById("fornavn_field").value;
     var efternavn = document.getElementById("efternavn_field").value;
     var klasse = document.getElementById("klasse_field").value;
+    var docref = firestore.doc("users/" + userId);
 
     console.log(userId + " " + username + " " + fornavn + " " + efternavn + " " + username + " " + klasse);
 
     docref.set({
         username: username,
-        Fornavn: fornavn,
-        Efternavn: efternavn,
+        Navn: fornavn + " " + efternavn,
         klasse: klasse
       })
       .then(function () {
