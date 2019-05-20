@@ -1,4 +1,5 @@
 *Årsprøve programering B Marinus Hurni Christensen, r2017 2.R*
+*https://bm2mhc.github.io/Slotshaven-bet/*
 
 # Slots bet
 A slotshaven 2.R betting site. 
