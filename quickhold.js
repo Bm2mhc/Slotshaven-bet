@@ -96,33 +96,47 @@ function create() {
     window.alert(errorMessage);
     // ...
   });
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User logged in already or has just logged in.
+      console.log(user.uid);
+      writeUserData()
+
+    } else {
+      // User not logged in or has just logged out.
+    }
+  });
+
+ 
+
 
   
 
-
-
-  writeUserData()
-
   function writeUserData(userId, username, fornavn, efternavn, klasse) {
-   
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        console.log(user.uid);
-      } else {
-        // User not logged in or has just logged out.
-      }
-    });
 
-    var userId = user.id
+   
+  
+    
+    var user = firebase.auth().currentUser;
     var firestore = firebase.firestore();
-    var docref = firestore.doc("users/"+userId)
+    var userId = user.uid;
+
+   /* if (user != null) {
+      userId = user.uid;
+    }*/
+
+
+    /*if (user != null) {
+     
+      
+    }*/
+    var docref = firestore.doc("users/" + userId)
     var username = document.getElementById("username_field").value;
     var fornavn = document.getElementById("fornavn_field").value;
     var efternavn = document.getElementById("efternavn_field").value;
     var klasse = document.getElementById("klasse_field").value;
 
-    console.log(username + " " + fornavn + " " + efternavn + " " + username + " " + klasse);
+    console.log(userId + " " + username + " " + fornavn + " " + efternavn + " " + username + " " + klasse);
 
     docref.set({
         username: username,
@@ -135,14 +149,9 @@ function create() {
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);
-      });   
+      });
   }
 }
-
-
-
-
-
 
 
 
