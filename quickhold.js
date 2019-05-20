@@ -15,6 +15,21 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     var user = firebase.auth().currentUser;
 
+    
+
+    
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        brugernavn();
+        console.log(user.uid + "   " + "lol");
+        
+      } else {
+        // User not logged in or has just logged out.
+      }
+    });
+
+
     if (user != null) {
 
       var email_id = user.email;
@@ -151,6 +166,28 @@ function create() {
         console.error("Error writing document: ", error);
       });
   }
+}
+
+function brugernavn(){
+  var firestore = firebase.firestore();
+  var userId = user.uid;
+  var docref = firestore.collection("users/" + userId + "/" + username);
+
+  docref.get().then(function (doc){
+
+    if (doc && doc.exists){
+        const data = doc.data();
+        console.log(data);
+        document.getElementById("user_parda2").innerHTML = "Velkommen " + data.userId;
+         
+    }
+  }).catch(function (error){
+    console.log(error);
+  })
+
+
+
+
 }
 
 
