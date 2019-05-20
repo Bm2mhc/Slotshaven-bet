@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     
 
     
-    firebase.auth().onAuthStateChanged((user) => {
+    /*firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
         brugernavn();
@@ -27,14 +27,14 @@ firebase.auth().onAuthStateChanged(function (user) {
       } else {
         // User not logged in or has just logged out.
       }
-    });
+    });*/
 
 
     if (user != null) {
 
       var email_id = user.email;
 
-      document.getElementById("user_parda").innerHTML = "Velkommen " + email_id;
+      document.getElementById("user_parda").innerHTML = "Velkommen, du er logget ind med " + email_id;
 
     }
 
@@ -150,7 +150,7 @@ function create() {
     var fornavn = document.getElementById("fornavn_field").value;
     var efternavn = document.getElementById("efternavn_field").value;
     var klasse = document.getElementById("klasse_field").value;
-    var docref = firestore.doc("users/" + userId);
+    var docref = firestore.doc("users/" + userId + "/aboutperson" + "/person");
 
     console.log(userId + " " + username + " " + fornavn + " " + efternavn + " " + username + " " + klasse);
 
@@ -168,7 +168,93 @@ function create() {
   }
 }
 
-function brugernavn(){
+
+ function svar(){
+  var user = firebase.auth().currentUser;
+  var firestore = firebase.firestore();
+  var userId = user.uid;
+  var docref = firestore.doc("users/" + userId + "/" + "bets" + "/" + "your bets");
+
+
+  var alexander = document.getElementById("alexander").value;
+  var benjamint = document.getElementById("Benjamin t").value;
+  var benjaminn = document.getElementById("Benjamin N").value;
+  var bjørg = document.getElementById("Bjørg").value;
+  var casper = document.getElementById("Casper").value;
+  var kvist = document.getElementById("kvist").value;
+  var hampus = document.getElementById("Hampus").value;
+  var kristoffer = document.getElementById("Kristoffer").value;
+  var mhansen = document.getElementById("M Hansen").value;
+  var mads = document.getElementById("Mads").value;
+  var magnus = document.getElementById("Magnus").value;
+  var marc = document.getElementById("Marc").value;
+  var marinus = document.getElementById("Marinus").value;
+  var mia = document.getElementById("Mia").value;
+  var natasja = document.getElementById("Natasja").value;
+  var nikolaj = document.getElementById("Nikolaj").value;
+  var oliver = document.getElementById("Oliver").value;
+  var sara = document.getElementById("Sara").value;
+  var victor = document.getElementById("Victor").value;
+  var william = document.getElementById("William").value;
+  var rektor = document.getElementById("rektor").value;
+  var nacho = document.getElementById("nacho").value;
+
+  /*console.log(alexander);
+  console.log(benjamint);
+  console.log(benjaminn);
+  console.log(bjørg);
+  console.log(casper);
+  console.log(kvist);
+  console.log(hampus);
+  console.log(kristoffer);
+  console.log(mhansen);
+  console.log(mads);
+  console.log(magnus);
+  console.log(marc);
+  console.log(marinus);
+  console.log(mia);
+  console.log(natasja);
+  console.log(nikolaj);
+  console.log(oliver);
+  console.log(sara);
+  console.log(victor);
+  console.log(william);
+  console.log(rektor);
+  console.log(nacho);*/
+
+  docref.set({
+
+    Alexander : alexander,
+    BenjaminT : benjamint,
+    benjaminN : benjaminn,
+    Bjørg : bjørg,
+    Casper : casper,
+    Kvist : kvist,
+    Hampus : hampus,
+    Kristoffer : kristoffer,
+    MHansen : mhansen,
+    Mads : mads,
+    Magnus : magnus,
+    Marinus : marinus,
+    Mia : mia,
+    Nataja : natasja,
+    Nikolaj : nikolaj,
+    Oliver : oliver,
+    Sara : sara,
+    Victor : victor,
+    William : william,
+    Rektor : rektor,
+    Nacho : nacho
+  }, {merge:true})
+  .then(function () {
+    console.log("Document successfully written!");
+  })
+  .catch(function (error) {
+    console.error("Error writing document: ", error);
+  });
+ }
+
+/*function brugernavn(){
   var firestore = firebase.firestore();
   var userId = user.uid;
   var docref = firestore.collection("users/" + userId + "/" + username);
@@ -188,7 +274,7 @@ function brugernavn(){
 
 
 
-}
+}*/
 
 
 

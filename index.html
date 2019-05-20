@@ -124,7 +124,6 @@
             <div class="col s12 l6">
                 <h3>Velkommen</h3>
                 <p id="user_parda">Du er lige nu logget ind. Log ud: </p>
-                <p id="user_parda2">Du er lige nu logget ind. Log ud: </p>
             </div>
             <div class="col s12 l5 offset-l1">
                 <button id="home2" class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'
@@ -376,7 +375,7 @@
                     <p>lectio : Marinus Hurni Christensen, 2r (SH)</p>
                     <p>Lokale : 24</p>
                     <p>20 gangen</p>
-
+                    <button class="waves-effect waves-light btn" href="#paypal.me/MarinusC">Donere</button>
                     <a href="#" class="black-text">Instagram : @marinus_h_christensen</a>
                 </div>
             </div>
@@ -391,10 +390,10 @@
                     <h4>Specielle ods</h4>
 
                     <h5>Årets</h5>
-                    <p>Vil Malene finde en anden rektor enden skole start 2019/2020? Ja, 0.00 : Nej, 100.00</p>
+                    <p>Vil Malene finde en anden rektor enden skole start 2019/2020? Ja, 30</p>
 
                     <h5>Dagens</h5>
-                    <p>Vil kantinen severe nachos i dag? Ja, 1.00 : Nej, 10.00</p>
+                    <p>Vil kantinen severe nachos i dag? Nej, 10000</p>
                 </div>
             </div>
         </div>
@@ -404,36 +403,133 @@
             <div id="2.R">
                 <h3> Mine bets </h3>
                 <form>
-                    <h5>Udsmidning</h5>
-                    <p>Alexander Søndergaard</p>
-                    <p>Benjamin Hylstrup Winum Testholm</p>
-                    <p>Benjamin Nielsen</p>
-                    <p>Bjørg Evers Kristjansen</p>
-                    <p>Casper Siig Maibøll</p>
-                    <p>Christoffer Kvistgaard</p>
-                    <p>Hampus Fink Gärdström</p>
-                    <p>Kristoffer Krejberg Petersen</p>
-                    <p>M Hansen</p>
-                    <p>Mads Teddy Francois Knudsen</p>
-                    <p>Magnus Elfenbein</p>
-                    <p>Marc Christoffersen Lemming</p>
-                    <p>Marinus Hurni Christensen</p>
-                    <p>Mia Jensen</p>
-                    <p>Natasja Damsbjerg</p>
-                    <p>Nikolaj Bergman Christensen</p>
-                    <p>Oliver Aagaard Madsen</p>
-                    <p>Sara Tims Michaelsen</p>
-                    <p>Victor Daugaard Cebula</p>
-                    <p>William Aslak Seitzberg Tonning</p>
+                    <h4>Udsmidning</h4>
+                    <div class="switch">
+                        <p>Vælg hvem du tror bliver smidt ud, hvert bud er 10 kr</p>
+                        <p>Alexander Søndergaard</p>
+                        <select name="alexander" id="alexander" data-role="slider">
+                            <option value="ja"> Ja, x 19</option>
+                            <option value="nej">Nej, x 1</option>
+                        </select>
+                        <p>Benjamin Hylstrup Winum Testholm</p>
+                        <select name="Benjamin t" id="Benjamin t" data-role="slider">
+                            <option value="ja"> Ja, x 3</option>
+                            <option value="nej">Nej, x 17</option>
+                        </select>
+                        <p>Benjamin Nielsen</p>
+                        <select name="Benjamin N" id="Benjamin N" data-role="slider">
+                            <option value="ja"> Ja, x 4</option>
+                            <option value="nej">Nej, x 16</option>
+                        </select>
+                        <p>Bjørg Evers Kristjansen</p>
+                        <select name="Bjørg" id="Bjørg" data-role="slider">
+                            <option value="ja"> Ja, x 5</option>
+                            <option value="nej">Nej, x 15</option>
+                        </select>
+                        <p>Casper Siig Maibøll</p>
+                        <select name="Casper" id="Casper" data-role="slider">
+                            <option value="ja"> Ja, x 16</option>
+                            <option value="nej">Nej, x 4</option>
+                        </select>
+                        <p>Christoffer Kvistgaard</p>
+                        <select name="Kvist" id="kvist" data-role="slider">
+                            <option value="ja"> Ja, x 7</option>
+                            <option value="nej">Nej, x 13</option>
+                        </select>
+                        <p>Hampus Fink Gärdström</p>
+                        <select name="Hampus" id="Hampus" data-role="slider">
+                            <option value="ja"> Ja, x 9</option>
+                            <option value="nej">Nej, x 11</option>
+                        </select>
+                        <p>Kristoffer Krejberg Petersen</p>
+                        <select name="Kristoffer" id="Kristoffer" data-role="slider">
+                            <option value="ja"> Ja, x 7</option>
+                            <option value="nej">Nej, x 13</option>
+                        </select>
+                        <p>M Hansen</p>
+                        <select name="M Hansen" id="M Hansen" data-role="slider">
+                            <option value="ja"> Ja, x 10</option>
+                            <option value="nej">Nej, x 10</option>
+                        </select>
+                        <p>Mads Teddy Francois Knudsen</p>
+                        <select name="Mads" id="Mads" data-role="slider">
+                            <option value="ja"> Ja, x 6</option>
+                            <option value="nej">Nej, x 14</option>
+                        </select>
+                        <p>Magnus Elfenbein</p>
+                        <select name="Magnus" id="Magnus" data-role="slider">
+                            <option value="ja"> Ja, x 15</option>
+                            <option value="nej">Nej, x 4</option>
+                        </select>
+                        <p>Marc Christoffersen Lemming</p>
+                        <select name="Marc" id="Marc" data-role="slider">
+                            <option value="ja"> Ja, x 1</option>
+                            <option value="nej">Nej, x 19</option>
+                        </select>
+                        <p>Marinus Hurni Christensen</p>
+                        <select name="Marinus" id="Marinus" data-role="slider">
+                            <option value="ja"> Ja, x 13</option>
+                            <option value="nej">Nej, x 7</option>
+                        </select>
+                        <p>Mia Jensen</p>
+                        <select name="Mia" id="Mia" data-role="slider">
+                            <option value="ja"> Ja, x 5</option>
+                            <option value="nej">Nej, x 15</option>
+                        </select>
+                        <p>Natasja Damsbjerg</p>
+                        <select name="Nataja" id="Natasja" data-role="slider">
+                            <option value="ja"> Ja, x 18</option>
+                            <option value="nej">Nej, x 2</option>
+                        </select>
+                        <p>Nikolaj Bergman Christensen</p>
+                        <select name="Nikolaj" id="Nikolaj" data-role="slider">
+                            <option value="ja"> Ja, x 2</option>
+                            <option value="nej">Nej, x 18</option>
+                        </select>
+                        <p>Oliver Aagaard Madsen</p>
+                        <select name="Oliver" id="Oliver" data-role="slider">
+                            <option value="ja"> Ja, x 17</option>
+                            <option value="nej">Nej, x 3</option>
+                        </select>
+                        <p>Sara Tims Michaelsen</p>
+                        <select name="Sara" id="Sara" data-role="slider">
+                            <option value="ja"> Ja, x 11</option>
+                            <option value="nej">Nej, x 9</option>
+                        </select>
+                        <p>Victor Daugaard Cebula</p>
+                        <select name="Victor" id="Victor" data-role="slider">
+                            <option value="ja"> Ja, x 14</option>
+                            <option value="nej">Nej, x 6</option>
+                        </select>
+                        <p>William Aslak Seitzberg Tonning</p>
+                        <select name="William" id="William" data-role="slider">
+                            <option value="ja"> Ja, x 12</option>
+                            <option value="nej">Nej, x 8</option>
+                        </select>
+                    </div>
+                    <div class="switch">
+                        <h4>Specielle bets</h4>
+                        <h7>Årets</h7>
+                        <p>Vil Malene finde en anden rektor enden skole start 2019/2020?</p>
+                        <select name="rektor" id="rektor" data-role="slider">
+                            <option value="ja"> Ja, x 30</option>
+                            <option value="nej">Nej, x 1</option>
+                        </select>
+
+                        <h6>Dagens</h6>
+                        <p>Vil kantinen severe nachos i dag?</p>
+                        <select name="nacho" id="nacho" data-role="slider">
+                            <option value="ja"> Ja, x 0.5</option>
+                            <option value="nej">Nej, x 10000</option>
+                        </select>
+
+                        <p> </p>
+                        <button onclick="svar()" style="margin-left:65px;"
+                            class='col  s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Submit</button>
+                        <p> </p>
+                        <p> </p>
+                </form>
             </div>
-            <h6>Specielle bets</h6>
-            <h7>Årets</h7>
-            <p>Vil Malene finde en anden rektor enden skole start 2019/2020? Ja, 0.00 : Nej, 100.00</p>
-
-            <h6>Dagens</h6>
-            <p>Vil kantinen severe nachos i dag? Ja, 1.00 : Nej, 10.00</p>
-            </form>
-
 
         </div>
 
@@ -447,6 +543,7 @@
                     <p>lectio : Marinus Hurni Christensen, 2r (SH)</p>
                     <p>Lokale : 24</p>
                     <p>20 gang</p>
+                    
                 </div>
                 <div class="col s12 l4 offset-l2">
                     <h5>Links</h5>
