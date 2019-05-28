@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User logged in already or has just logged in.
         console.log(user.uid);
         brugernavn()
-  
+
       } else {
         // User not logged in or has just logged out.
       }
@@ -97,6 +97,7 @@ function login2() {
 function create() {
   var userEmail = document.getElementById("email_field2").value;
   var userpassword = document.getElementById("password_field2").value;
+  var firestore = firebase.firestore();
 
 
 
@@ -110,6 +111,14 @@ function create() {
 
     window.alert(errorMessage);
     // ...
+  });
+
+  var user = firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function () {
+    // Email sent.
+  }).catch(function (error) {
+    // An error happened.
   });
 
   firebase.auth().onAuthStateChanged((user) => {
@@ -276,7 +285,7 @@ function brugernavn() {
       const data = doc.data();
       console.log(userId);
       console.log(doc.data().klasse);
-      if  (doc.data().klasse == "2.R"){
+      if (doc.data().klasse == "2.R") {
         $('#2R').show();
       }
 
