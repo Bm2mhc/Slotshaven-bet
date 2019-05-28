@@ -158,7 +158,8 @@ function create() {
     docref.set({
         username: username,
         Navn: fornavn + " " + efternavn,
-        klasse: klasse
+        klasse: klasse,
+        verified: "not"
       })
       .then(function () {
         console.log("Document successfully written!");

@@ -473,6 +473,18 @@
                 <h3>Mine bets</h3>
                 <p>Din klasse er ikke tilmeldt Slotsbet</p>
                 <p>Tilmeld din klasse ved at sende en besked til Marinus Hurni Christensen på lectio</p>
+                <pre>
+
+
+
+
+
+
+
+
+
+
+                    </pre>
             </div>
 
 
@@ -899,7 +911,7 @@
 
                 if (doc.exists) {
                     const data = doc.data();
-                    if (doc.data().klasse == "2.R") {
+                    if (doc.data().verified == "yes" && doc.data().klasse == "2.R") {
                         $('#page-login').hide();
                         $('#page-regler').hide();
                         $('#page-one').hide();
@@ -921,6 +933,7 @@
                         $('#page-slotsnews').hide();
                         $('#page-kontakt').hide();
                         $('#page-bet').hide();
+                        $('#2R').hide();
                         $('#minebets-div').show();
                         $('#everybodyelse').show();
                     }
