@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     
 
     
-    /*firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
         brugernavn();
@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       } else {
         // User not logged in or has just logged out.
       }
-    });*/
+    });
 
 
     if (user != null) {
@@ -170,6 +170,9 @@ function create() {
 
 
  function svar(){
+
+  
+
   var user = firebase.auth().currentUser;
   var firestore = firebase.firestore();
   var userId = user.uid;
@@ -199,7 +202,7 @@ function create() {
   var rektor = document.getElementById("rektor").value;
   var nacho = document.getElementById("nacho").value;
 
-  /*console.log(alexander);
+  console.log(alexander);
   console.log(benjamint);
   console.log(benjaminn);
   console.log(bjørg);
@@ -220,7 +223,10 @@ function create() {
   console.log(victor);
   console.log(william);
   console.log(rektor);
-  console.log(nacho);*/
+  console.log(nacho);
+  console.log( parseFloat(alexander) + parseFloat(benjamint) + parseFloat(benjaminn) + parseFloat(bjørg) + parseFloat(casper) + parseFloat(kvist) + parseFloat(hampus) + parseFloat(kristoffer) + parseFloat(mhansen) + parseFloat(mads) + parseFloat(magnus) + parseFloat(marc) + parseFloat(marinus) + parseFloat(mia) + parseFloat(natasja) + parseFloat(nikolaj) + parseFloat(oliver) + parseFloat(sara) + parseFloat(victor) + parseFloat(william) + parseFloat(rektor) + parseFloat(nacho))
+
+
 
   docref.set({
 
@@ -254,10 +260,10 @@ function create() {
   });
  }
 
-/*function brugernavn(){
+function brugernavn(){
   var firestore = firebase.firestore();
   var userId = user.uid;
-  var docref = firestore.collection("users/" + userId + "/" + username);
+  var docref = firestore.collection("users"+ "/" + userId + "/" + "aboutperson" + "/").doc("person");
 
   docref.get().then(function (doc){
 
@@ -274,7 +280,7 @@ function create() {
 
 
 
-}*/
+}
 
 
 
