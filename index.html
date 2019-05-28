@@ -490,7 +490,7 @@
             <div id="notver">
                 <h3>Mine bets</h3>
                 <p>Du er ikke verified</p>
-                <p>Du skal desværre vente lidt</p>
+                <p>Vent med at bette</p>
                 <pre>
 
 
@@ -940,8 +940,10 @@
                         $('#page-bet').hide();
                         $('#minebets-div').show();
                         $('#everybodyelse').hide();
+                        $('#notver').hide();
                         //$('#page-login').hide();ø
                         $('#2R').show();
+                        console.log(doc.data().verified =="yes" )
                     } else if (doc.data().klasse != "2.R"){
                         $('#page-login').hide();
                         $('#page-regler').hide();
@@ -954,7 +956,7 @@
                         $('#2R').hide();
                         $('#minebets-div').show();
                         $('#everybodyelse').show();
-                        $('#notver').show();
+                        $('#notver').hide();
                     }else if(doc.data().verified != "yes"){
                         $('#page-login').hide();
                         $('#page-regler').hide();

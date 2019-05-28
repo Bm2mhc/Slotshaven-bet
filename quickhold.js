@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       var email_id = user.email;
 
-      document.getElementById("user_parda").innerHTML = "Velkommen, du er logget ind med " + email_id;
+      //document.getElementById("user_parda").innerHTML = "Velkommen, du er logget ind med " + email_id;
 
     }
 
