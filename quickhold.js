@@ -15,15 +15,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     var user = firebase.auth().currentUser;
 
-    
 
-    
+
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
-        brugernavn();
-        console.log(user.uid + "   " + "lol");
-        
+        console.log(user.uid);
+        brugernavn()
+  
       } else {
         // User not logged in or has just logged out.
       }
@@ -111,6 +111,7 @@ function create() {
     window.alert(errorMessage);
     // ...
   });
+
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User logged in already or has just logged in.
@@ -122,30 +123,30 @@ function create() {
     }
   });
 
- 
 
 
-  
+
+
 
   function writeUserData(userId, username, fornavn, efternavn, klasse) {
 
-   
-  
-    
+
+
+
     var user = firebase.auth().currentUser;
     var firestore = firebase.firestore();
     var userId = user.uid;
 
-   /* if (user != null) {
-      userId = user.uid;
-    }*/
+    /* if (user != null) {
+       userId = user.uid;
+     }*/
 
 
     /*if (user != null) {
      
       
     }*/
-    
+
     var username = document.getElementById("username_field").value;
     var fornavn = document.getElementById("fornavn_field").value;
     var efternavn = document.getElementById("efternavn_field").value;
@@ -169,9 +170,9 @@ function create() {
 }
 
 
- function svar(){
+function svar() {
 
-  
+
 
   var user = firebase.auth().currentUser;
   var firestore = firebase.firestore();
@@ -224,56 +225,69 @@ function create() {
   console.log(william);
   console.log(rektor);
   console.log(nacho);
-  console.log( parseFloat(alexander) + parseFloat(benjamint) + parseFloat(benjaminn) + parseFloat(bjørg) + parseFloat(casper) + parseFloat(kvist) + parseFloat(hampus) + parseFloat(kristoffer) + parseFloat(mhansen) + parseFloat(mads) + parseFloat(magnus) + parseFloat(marc) + parseFloat(marinus) + parseFloat(mia) + parseFloat(natasja) + parseFloat(nikolaj) + parseFloat(oliver) + parseFloat(sara) + parseFloat(victor) + parseFloat(william) + parseFloat(rektor) + parseFloat(nacho))
+  console.log(parseFloat(alexander) + parseFloat(benjamint) + parseFloat(benjaminn) + parseFloat(bjørg) + parseFloat(casper) + parseFloat(kvist) + parseFloat(hampus) + parseFloat(kristoffer) + parseFloat(mhansen) + parseFloat(mads) + parseFloat(magnus) + parseFloat(marc) + parseFloat(marinus) + parseFloat(mia) + parseFloat(natasja) + parseFloat(nikolaj) + parseFloat(oliver) + parseFloat(sara) + parseFloat(victor) + parseFloat(william) + parseFloat(rektor) + parseFloat(nacho))
 
 
 
   docref.set({
 
-    Alexander : alexander,
-    BenjaminT : benjamint,
-    benjaminN : benjaminn,
-    Bjørg : bjørg,
-    Casper : casper,
-    Kvist : kvist,
-    Hampus : hampus,
-    Kristoffer : kristoffer,
-    MHansen : mhansen,
-    Mads : mads,
-    Magnus : magnus,
-    Marinus : marinus,
-    Mia : mia,
-    Nataja : natasja,
-    Nikolaj : nikolaj,
-    Oliver : oliver,
-    Sara : sara,
-    Victor : victor,
-    William : william,
-    Rektor : rektor,
-    Nacho : nacho
-  }, {merge:true})
-  .then(function () {
-    console.log("Document successfully written!");
-  })
-  .catch(function (error) {
-    console.error("Error writing document: ", error);
-  });
- }
+      Alexander: alexander,
+      BenjaminT: benjamint,
+      benjaminN: benjaminn,
+      Bjørg: bjørg,
+      Casper: casper,
+      Kvist: kvist,
+      Hampus: hampus,
+      Kristoffer: kristoffer,
+      MHansen: mhansen,
+      Mads: mads,
+      Magnus: magnus,
+      Marinus: marinus,
+      Mia: mia,
+      Nataja: natasja,
+      Nikolaj: nikolaj,
+      Oliver: oliver,
+      Sara: sara,
+      Victor: victor,
+      William: william,
+      Rektor: rektor,
+      Nacho: nacho
+    }, {
+      merge: true
+    })
+    .then(function () {
+      console.log("Document successfully written!");
+    })
+    .catch(function (error) {
+      console.error("Error writing document: ", error);
+    });
+}
 
-function brugernavn(){
+function brugernavn() {
+  var user = firebase.auth().currentUser;
   var firestore = firebase.firestore();
   var userId = user.uid;
-  var docref = firestore.collection("users"+ "/" + userId + "/" + "aboutperson" + "/").doc("person");
+  var docref = firestore.collection("users" + "/" + userId + "/" + "aboutperson" + "/").doc("person")
 
-  docref.get().then(function (doc){
+  docref.get().then(function (doc) {
 
-    if (doc && doc.exists){
-        const data = doc.data();
-        console.log(data);
-        document.getElementById("user_parda2").innerHTML = "Velkommen " + data.userId;
-         
+    if (doc.exists) {
+      const data = doc.data();
+      console.log(userId);
+      console.log(doc.data().klasse);
+      if  (doc.data().klasse == "2.R"){
+        $('#2R').show();
+      }
+
+
+
+      document.getElementById("user_parda2").innerHTML = "Velkommen " + doc.data().username;
+
+    } else {
+      console.log(userId + "Ingen info");
+      $('#2R').hide();
     }
-  }).catch(function (error){
+  }).catch(function (error) {
     console.log(error);
   })
 
