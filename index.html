@@ -487,6 +487,24 @@
                     </pre>
             </div>
 
+            <div id="notver">
+                <h3>Mine bets</h3>
+                <p>Du er ikke verified</p>
+                <p>Du skal desværre vente lidt</p>
+                <pre>
+
+
+
+
+
+
+
+
+
+
+                    </pre>
+            </div>
+
 
             <div id="2R">
                 <h3> Mine bets </h3>
@@ -924,7 +942,7 @@
                         $('#everybodyelse').hide();
                         //$('#page-login').hide();ø
                         $('#2R').show();
-                    } else {
+                    } else if (doc.data().klasse != "2.R"){
                         $('#page-login').hide();
                         $('#page-regler').hide();
                         $('#page-one').hide();
@@ -936,6 +954,20 @@
                         $('#2R').hide();
                         $('#minebets-div').show();
                         $('#everybodyelse').show();
+                        $('#notver').show();
+                    }else if(doc.data().verified != "yes"){
+                        $('#page-login').hide();
+                        $('#page-regler').hide();
+                        $('#page-one').hide();
+                        $('#page-omos').hide();
+                        $('#page-slotsnews').hide();
+                        $('#page-slotsnews').hide();
+                        $('#page-kontakt').hide();
+                        $('#page-bet').hide();
+                        $('#2R').hide();
+                        $('#minebets-div').show();
+                        $('#notver').show();
+                        $('#everybodyelse').hide();
                     }
                 }
             }).catch(function (error) {
