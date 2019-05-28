@@ -270,8 +270,8 @@ function brugernavn(){
 
     if (doc && doc.exists){
         const data = doc.data();
-        console.log(data);
-        document.getElementById("user_parda2").innerHTML = "Velkommen " + data.userId;
+        console.log(data.username);
+        document.getElementById("user_parda2").innerHTML = "Velkommen " + data.userId; 
          
     }
   }).catch(function (error){

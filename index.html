@@ -27,9 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
     <!--Google API-->
-    <script async
-    src="https://pay.google.com/gp/p/js/pay.js"
-    onload="onGooglePayLoaded()"></script>
+    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -129,7 +127,6 @@
         <div class="container" id="user_div">
             <div class="col s12 l6">
                 <h3>Velkommen</h3>
-                <p id="user_parda">Du er lige nu logget ind. Log ud: </p>
                 <p id="user_parda2">Du er lige nu logget ind. Log ud: </p>
             </div>
             <div class="col s12 l5 offset-l1">
@@ -292,6 +289,18 @@
                         <li>Bare bet med alkohol</li>
 
                         <p>Lyder godt? så bare kom igang</p>
+
+                        <pre>
+
+
+
+
+
+
+
+
+
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -309,6 +318,20 @@
                     <p>Det er så nemt</p>
                     <li>Du har 14 dages retur ret</li>
                     <li>Hvis du trækker pengene ud tidligere får du kun penge for det den er faldet til</li>
+                    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                        </pre>
                 </div>
             </div>
         </div>
@@ -332,6 +355,15 @@
                     <h5>Slots bet</h5>
                     <p>Slots bet er et firma der gør så man kan vinde øl på din venner</p>
                     <p>I tilmelder jeres klasse og i kan vinde øl på karaktere og udsmidning</p>
+
+                    <pre>
+
+
+
+
+
+                        </pre>
+
                 </div>
             </div>
         </div>
@@ -382,8 +414,24 @@
                     <p>lectio : Marinus Hurni Christensen, 2r (SH)</p>
                     <p>Lokale : 24</p>
                     <p>20 gangen</p>
-                    <button class="waves-effect waves-light btn" href="#paypal.me/MarinusC">Donere</button>
+
                     <a href="#" class="black-text">Instagram : @marinus_h_christensen</a>
+                    <pre></pre>
+                    <button class="waves-effect waves-light btn"><a class="black-text" href="https://paypal.me/MarinusC" target="_blank">Donere</a></button>
+                    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                        </pre>
                 </div>
             </div>
         </div>
@@ -401,13 +449,26 @@
 
                     <h5>Dagens</h5>
                     <p>Vil kantinen severe nachos i dag? Nej, 10000</p>
+                    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                        </pre>
                 </div>
             </div>
         </div>
 
         <div class="container" id="minebets-div">
 
-<<<<<<< HEAD
             <div id="everybodyelse">
                 <h3>Mine bets</h3>
                 <p>Din klasse er ikke tilmeldt Slotsbet</p>
@@ -446,9 +507,6 @@
 
 
             <div id="2R">
-=======
-            <div id="2.R">
->>>>>>> parent of 6b7ac17... The class info is hidden if you are not class
                 <h3> Mine bets </h3>
                 <form>
                     <h4>Udsmidning</h4>
@@ -832,8 +890,36 @@
 
         })
 
+        /* if (doc.data().klasse == "2.R") {
+             $('#menu-minebets').click(function () {
+                 $('#page-login').hide();
+                 $('#page-regler').hide();
+                 $('#page-one').hide();
+                 $('#page-omos').hide();
+                 $('#page-slotsnews').hide();
+                 $('#page-slotsnews').hide();
+                 $('#page-kontakt').hide();
+                 $('#page-bet').hide();
+                 $('#minebets-div').show();
+                 //$('#page-login').hide();ø
+                 $('#2R').show();
+
+             });
+         } else {
+             $('#page-login').hide();
+             $('#page-regler').hide();
+             $('#page-one').hide();
+             $('#page-omos').hide();
+             $('#page-slotsnews').hide();
+             $('#page-slotsnews').hide();
+             $('#page-kontakt').hide();
+             $('#page-bet').hide();
+             $('#minebets-div').show();
+             $('#2R').hide();
+
+         }*/
+
         $('#menu-minebets').click(function () {
-<<<<<<< HEAD
             var user = firebase.auth().currentUser;
             var firestore = firebase.firestore();
             var userId = user.uid;
@@ -857,7 +943,7 @@
                         $('#notver').hide();
                         //$('#page-login').hide();ø
                         $('#2R').show();
-                        console.log(doc.data().verified =="yes" )
+                        console.log(doc.data().verified =="yes")
                     } else if (doc.data().klasse != "2.R"){
                         $('#page-login').hide();
                         $('#page-regler').hide();
@@ -893,19 +979,6 @@
 
         })
 
-=======
-            $('#page-login').hide();
-            $('#page-regler').hide();
-            $('#page-one').hide();
-            $('#page-omos').hide();
-            $('#page-slotsnews').hide();
-            $('#page-slotsnews').hide();
-            $('#page-kontakt').hide();
-            $('#page-bet').hide();
-            $('#minebets-div').show();
-            //$('#page-login').hide();ø
-        });
->>>>>>> parent of 6b7ac17... The class info is hidden if you are not class
 
         $('#menu-minebets2').click(function () {
             $('#page-login').hide();
