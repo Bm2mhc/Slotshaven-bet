@@ -9,6 +9,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     $('#menu-page-login').hide();
     $('#menu-minebets').show();
     $('#menu-minebets2').show();
+    $('#menu-tilmeld').show();
+    $('#menu-tilmeld2').show();
     $('#user_div').show();
     $('#login_div').hide();
     $('#login_div2').hide();
@@ -47,6 +49,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     $('#menu-page-login').show();
     $('#menu-minebets').hide();
     $('#menu-minebets2').hide();
+    $('#menu-tilmeld').hide();
+    $('#menu-tilmeld2').hide();
     $('#user_div').hide();
     $('#login_div').show();
     $('#login_div2').show();
