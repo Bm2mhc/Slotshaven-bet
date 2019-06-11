@@ -17,7 +17,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
@@ -270,10 +269,13 @@ function brugernavn() {
   var userId = user.uid;
   var docref = firestore.collection("users" + "/" + userId + "/" + "aboutperson" + "/").doc("person")
 
+
+
   docref.get().then(function (doc) {
 
     if (doc && doc.exists){
         const data = doc.data();
+        console.log(data)
         console.log(data.username);
         document.getElementById("user_parda2").innerHTML = "Velkommen " + data.username; 
          

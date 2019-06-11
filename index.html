@@ -505,25 +505,6 @@
                     </pre>
             </div>
 
-            <div id="verfnot">
-                <h3>Mine bets</h3>
-                <p>Du er ikke verified</p>
-                <p>Din klasse er ikke tilmeld, Skriv til Marinus Hurni Christensen</p>
-                <p>Vent med at bette</p>
-                <pre>
-
-
-
-
-
-
-
-
-
-
-                    </pre>
-            </div>
-
 
             <div id="2R">
                 <h3> Mine bets </h3>
@@ -991,21 +972,6 @@
                         $('#notver').show();
                         $('#everybodyelse').hide();
                         $('#verfnot').hide();
-                    }else if(doc.data().verified != "yes" && doc.data().klasse != "2.R"){
-                        $('#page-login').hide();
-                        $('#page-regler').hide();
-                        $('#page-one').hide();
-                        $('#page-omos').hide();
-                        $('#page-slotsnews').hide();
-                        $('#page-slotsnews').hide();
-                        $('#page-kontakt').hide();
-                        $('#page-bet').hide();
-                        $('#2R').hide();
-                        $('#minebets-div').show();
-                        $('#notver').hide();
-                        $('#everybodyelse').hide();
-                        $('#verfnot').show();
-                        
                     }
                 }
             }).catch(function (error) {
@@ -1049,6 +1015,7 @@
             }
         });
 
+        $('#notver').hide();
         $("#2R").hide();
         $("#hhxklasse").hide();
         $("#htxklasse").hide();
