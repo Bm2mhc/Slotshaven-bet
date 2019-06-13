@@ -70,8 +70,8 @@
                         <li id="menu-page-omos"><a href="#om os">Om os</a></li>
                         <li id="menu-page-kontakt"><a href="#kontakt">Kontakt</a></li>
                         <li id="menu-minebets"><a href="#minebets">Mine bets</a></li>
+                        <li id="menu-info"><a href="#info" onclick="get_info();">Din info</a></li>
                         <li id="menu-page-login" class="red"><a href="#login">Login</a></li>
-                        <li id="menu-tilmeld"><a href="#tilmeld">Tilmeld klasse</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,7 +84,7 @@
             <li id="menu-page-omos2"><a href="#om os">Om os</a></li>
             <li id="menu-page-kontakt2"><a href="#kontakt">Kontakt</a></li>
             <li id="menu-minebets2"><a href="#minebets">Mine bets</a></li>
-            <li id="menu-tilmeld2"><a href="#tilmeld">Tilmeld klasse</a></li>
+            <li id="menu-info"><a href="#info" onclick="get_info();">Din info</a></li>
 
             <div class="container" id="login_div">
                 <div class="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row"
@@ -307,6 +307,92 @@
                 </div>
             </div>
         </div>
+
+        <div class="container" style="margin-top: 1%">
+            <div id="page-info">
+                <div class="row">
+                    <div class="col s12 8 offset-l1">
+                        <h3>Dine informationer</h3>
+
+                        <p id="info">Navn:</p>
+                        <P id="info1">Brugernavn:</P>
+                        <p id="info2">Klasse:</p>
+                        <p id="info3">verified:</p>
+
+                        <button class="waves-effect waves-light btn"><a class="white-text" href="#info"
+                                id="page-changebut">Ændre informationer</a></button>
+
+                        
+
+                    </div>
+                    <div id="page-change" class="col s12 l3">
+                                                     
+        <p><b>Fornavn</b></p>
+        <input id="fornavnchange"></input>
+        <p><b>Efternavn</b></p>
+        <input id="efternavnchange">
+        <p><b>Brugernavn</b</p>
+        <input id="usernamechange">
+        <p><b>Klasse</b></p>
+                <select id='klassechange'>
+                    <option value="disabled">Vælg klasse</option>
+                    <option value="1.A">1.A</option>
+                    <option value="1.B">1.B</option>
+                    <option value="1.C">1.C</option>
+                    <option value="1.D">1.D</option>
+                    <option value="1.E">1.E</option>
+                    <option value="1.F">1.F</option>
+                    <option value="1.H">1.H</option>
+                    <option value="1.R">1.R</option>
+                    <option value="1.S">1.S</option>
+                    <option value="1.X">1.x</option>
+                    <option value="2.A">2.A</option>
+                    <option value="2.B">2.B</option>
+                    <option value="2.C">2.C</option>
+                    <option value="2.D">2.D</option>
+                    <option value="2.E">2.E</option>
+                    <option value="2.F">2.F</option>
+                    <option value="2.R">2.R</option>
+                    <option value="2.S">2.S</option>
+                    <option value="2.X">2.x</option>
+                    <option value="2.Y">2.Y</option>
+                    <option value="3.R">3.R</option>
+                    <option value="3.X">3.X</option>
+                    <option value="3.Y">3.Y</option>
+                    <option value="3.Z">3.Z</option>
+                    <option value="3.A">3.A</option>
+                    <option value="3.B">3.B</option>
+                    <option value="3.C">3.C</option>
+                    <option value="3.D">3.D</option>
+                </select>
+
+
+
+                    </div>
+                </div>
+                <script>
+                        $('#page-change').hide();
+                        $('#page-changebut').click(function () {
+                            $('#page-change').toggle("slide");
+                        });
+                    </script>
+                    
+                       
+                    <pre>
+
+
+
+
+
+
+
+
+
+                        </pre>
+            </div>
+        </div>
+
+
         <div id="page-regler">
             <div class="row">
                 <div class="col s12 l4 offset-l2">
@@ -368,41 +454,6 @@
 
                 </div>
             </div>
-        </div>
-        </div>
-
-        <div id="page-slotsnews">
-            <div class="row">
-                <div class="col s12 l6 offset-l2">
-                    <script>
-                        function SlotsNEWS() {
-
-                            $.getJSON("Slotsnews.json", function (json) {
-                                console.log(json); // this will show the info it in firebug console
-                            });
-                        }
-                    </script>
-                    <div class="col s12 l4"> <img
-                            src="https://www.slotsnews.dk/wp-content/uploads/2019/01/slotsnews_V2_X2.png">
-
-                    </div>
-                </div>
-
-                <div class="col s12 l4">
-
-                    <label>Filter</label>
-                    <select class="browser-default">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="1" onclick="late()">Latest</option>
-                        <option value="2" onclick="first()">First</option>
-                    </select>
-                </div>
-
-            </div>
-
-
-        </div>
-        </div>
         </div>
 
         <div id="page-kontakt">
@@ -470,66 +521,6 @@
             </div>
         </div>
 
-        <div id="page-tilmeld">
-            <div class="row">
-                <div class="col s12 l1 offset-l1">
-                </div>
-                <div class="col s12 l10">
-
-                    <h4>Tilmeld din klasse</h4>
-
-                    <p><b>Klasse</b></p>
-                    <div class="input-field col s12"></div>
-                        <select id='klasse_field'>
-                            <option value="disabled">Vælg klasse</option>
-                            <option value="1.A">1.A</option>
-                            <option value="1.B">1.B</option>
-                            <option value="1.C">1.C</option>
-                            <option value="1.D">1.D</option>
-                            <option value="1.E">1.E</option>
-                            <option value="1.F">1.F</option>
-                            <option value="1.H">1.H</option>
-                            <option value="1.R">1.R</option>
-                            <option value="1.S">1.S</option>
-                            <option value="1.X">1.x</option>
-                            <option value="2.A">2.A</option>
-                            <option value="2.B">2.B</option>
-                            <option value="2.C">2.C</option>
-                            <option value="2.D">2.D</option>
-                            <option value="2.E">2.E</option>
-                            <option value="2.F">2.F</option>
-                            <option value="2.R">2.R</option>
-                            <option value="2.S">2.S</option>
-                            <option value="2.X">2.x</option>
-                            <option value="2.Y">2.Y</option>
-                            <option value="3.R">3.R</option>
-                            <option value="3.X">3.X</option>
-                            <option value="3.Y">3.Y</option>
-                            <option value="3.Z">3.Z</option>
-                            <option value="3.A">3.A</option>
-                            <option value="3.B">3.B</option>
-                            <option value="3.C">3.C</option>
-                            <option value="3.D">3.D</option>
-                        </select>
-                    </div>
-                    <pre>
-
-
-
-
-
-
-
-
-
-
-
-
-                        </pre>
-                </div>
-            </div>
-        </div>
-
         <div class="container" id="minebets-div">
 
             <div id="everybodyelse">
@@ -567,7 +558,7 @@
 
                     </pre>
             </div>
-
+            8
 
             <div id="2R">
                 <h3> Mine bets </h3>
@@ -724,9 +715,6 @@
 
 
 
-
-
-
     </main>
 
     <footer class="page-footer black">
@@ -776,9 +764,9 @@
             $('#page-one').hide();
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
+            $('#page-info').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -788,10 +776,36 @@
             $('#page-regler').hide();
             $('#page-one').show();
             $('#page-omos').hide();
+            $('#page-info').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-info').click(function () {
+            $('#minebets-div').hide();
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hide();
+            $('#page-omos').hide();
+            $('#page-slotsnews').hide();
+            $('#page-info').show();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
+            //$('#page-login').hide();ø
+        });
+
+        $('#menu-info2').click(function () {
+            $('#minebets-div').hide();
+            $('#page-login').hide();
+            $('#page-regler').hide();
+            $('#page-one').hode();
+            $('#page-omos').hide();
+            $('#page-info').show();
+            $('#page-slotsnews').hide();
+            $('#page-kontakt').hide();
+            $('#page-bet').hide();
             //$('#page-login').hide();ø
         });
         $('#home2').click(function () {
@@ -801,9 +815,9 @@
             $('#page-one').show();
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
+            $('#page-info').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -814,21 +828,21 @@
             $('#page-one').hide();
             $('#page-omos').show();
             $('#page-slotsnews').hide();
+            $('#page-info').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
         $('#menu-page-omos3').click(function () {
             $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').hide();
+            $('#page-info').hide();
             $('#page-one').hide();
             $('#page-omos').show();
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -837,12 +851,12 @@
             $('#minebets-div').hide();
             $('#page-login').hide();
             $('#page-regler').show();
+            $('#page-info').hide();
             $('#page-one').hide();
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
         $('#menu-page-regler3').click(function () {
@@ -850,11 +864,11 @@
             $('#page-login').hide();
             $('#page-regler').show();
             $('#page-one').hide();
+            $('#page-info').hide();
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -867,7 +881,6 @@
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -878,10 +891,10 @@
             $('#page-one').hide();
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
+            $('#page-info').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').show();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -891,11 +904,11 @@
             $('#page-regler').hide();
             $('#page-one').hide();
             $('#page-omos').hide();
+            $('#page-info').hide();
             $('#page-slotsnews').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').show();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -908,8 +921,8 @@
             $('#page-slotsnews').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').show();
+            $('#page-info').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -921,9 +934,9 @@
             $('#page-omos').hide();
             $('#page-slotsnews').hide();
             $('#page-slotsnews').hide();
+            $('#page-info').hide();
             $('#page-kontakt').hide();
             $('#page-bet').show();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -936,8 +949,8 @@
             $('#page-slotsnews').hide();
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
+            $('#page-info').hide();
             $('#page-bet').show();
-            $('#page-tilmeld').hide();
             //$('#page-login').hide();ø
         });
 
@@ -953,7 +966,7 @@
             $('#page-slotsnews').hide();
             $('#page-kontakt').hide();
             $('#page-bet').hide();
-            $('#page-tilmeld').hide();
+            $('#page-info').hide();
         })
         $('#createuser_2').click(function () {
             $('#login_div').hide();
@@ -971,6 +984,35 @@
             //$('#page-login').hide();
 
         })
+
+        /* if (doc.data().klasse == "2.R") {
+             $('#menu-minebets').click(function () {
+                 $('#page-login').hide();
+                 $('#page-regler').hide();
+                 $('#page-one').hide();
+                 $('#page-omos').hide();
+                 $('#page-slotsnews').hide();
+                 $('#page-slotsnews').hide();
+                 $('#page-kontakt').hide();
+                 $('#page-bet').hide();
+                 $('#minebets-div').show();
+                 //$('#page-login').hide();ø
+                 $('#2R').show();
+
+             });
+         } else {
+             $('#page-login').hide();
+             $('#page-regler').hide();
+             $('#page-one').hide();
+             $('#page-omos').hide();
+             $('#page-slotsnews').hide();
+             $('#page-slotsnews').hide();
+             $('#page-kontakt').hide();
+             $('#page-bet').hide();
+             $('#minebets-div').show();
+             $('#2R').hide();
+
+         }*/
 
         $('#menu-minebets').click(function () {
             var user = firebase.auth().currentUser;
@@ -994,7 +1036,7 @@
                         $('#minebets-div').show();
                         $('#everybodyelse').hide();
                         $('#notver').hide();
-                        $('#page-tilmeld').hide();
+                        $('#page-info').hide();
                         //$('#page-login').hide();ø
                         $('#2R').show();
                         console.log(doc.data().verified == "yes")
@@ -1012,7 +1054,7 @@
                         $('#everybodyelse').show();
                         $('#notver').hide();
                         $('#verfnot').hide();
-                        $('#page-tilmeld').hide();
+                        $('#page-info').hide();
                     } else if (doc.data().verified != "yes") {
                         $('#page-login').hide();
                         $('#page-regler').hide();
@@ -1027,7 +1069,7 @@
                         $('#notver').show();
                         $('#everybodyelse').hide();
                         $('#verfnot').hide();
-                        $('#page-tilmeld').hide();
+                        $('#page-info').hide();
                     }
                 }
             }).catch(function (error) {
@@ -1035,7 +1077,8 @@
             })
 
 
-        });
+        })
+
 
         $('#menu-minebets2').click(function () {
             $('#page-login').hide();
@@ -1047,35 +1090,7 @@
             $('#page-kontakt').hide();
             $('#page-bet').hide();
             $('#minebets-div').show();
-            $('#page-tilmeld').hide();
-            //$('#page-login').hide();ø
-        });
-
-        $('#menu-tilmeld').click(function () {
-            $('#page-login').hide();
-            $('#page-regler').hide();
-            $('#page-one').hide();
-            $('#page-omos').hide();
-            $('#page-slotsnews').hide();
-            $('#page-slotsnews').hide();
-            $('#page-kontakt').hide();
-            $('#page-bet').hide();
-            $('#page-tilmeld').show();
-            $('#minebets-div').hide();
-            //$('#page-login').hide();ø
-        });
-
-        $('#menu-tilmeld2').click(function () {
-            $('#page-login').hide();
-            $('#page-regler').hide();
-            $('#page-one').hide();
-            $('#page-omos').hide();
-            $('#page-slotsnews').hide();
-            $('#page-slotsnews').hide();
-            $('#page-kontakt').hide();
-            $('#page-bet').hide();
-            $('#page-tilmeld').show();
-            $('#minebets-div').hide();
+            $('#page-info').hide();
             //$('#page-login').hide();ø
         });
 
@@ -1112,7 +1127,9 @@
         $('#page-kontakt').hide();
         $('#page-bet').hide();
         $('#createlogin_div').hide();
-        $('#page-tilmeld').hide();
+        $('#page-info').hide();
+
+
 
 
         $(document).ready(function () {
@@ -1133,7 +1150,7 @@
         };
         firebase.initializeApp(config);
     </script>
-
+    <script src="changestuf.js"></script>
     <script src="quickhold.js"></script>
     <script src="googleapi.js"></script>
 
